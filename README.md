@@ -1,6 +1,8 @@
 # Supplementary material for a systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system
 
-This repository [hosts a site]("https://davetayl-r.github.io/care-leaver-review/") containing supplementary material for a systematic review titled <i>"Systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system"</i>.
+[![DOI](https://zenodo.org/badge/664429132.svg)](https://zenodo.org/badge/latestdoi/664429132)
+
+This repository [hosts a site]("https://davetayl-r.github.io/care-leaver-review/") that contains supplementary material for a systematic review titled <i>"Systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system"</i>.
 
 The following information is available:
 
