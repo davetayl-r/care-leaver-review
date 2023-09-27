@@ -356,6 +356,7 @@ The primary goal of PYI is to prevent youth homelessness. Secondary goals are im
 #### Eligibility criteria
 
 To be enrolled in PYI, young people need to:
+
 * Reside in catchments where services are provided (within the state of NSW);
 * Be aged between 16.75 (16 years and 9 months) and 17.5 (17 years and 6 months) at the commencement of services; 
 * Meet one or more of the following criteria: leaving residential OOHC, leaving OOHC with placement instability, leaving a permanent OOHC placement, and leaving OOHC after being in care 12 months or longer; and
