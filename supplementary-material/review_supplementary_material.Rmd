@@ -1,0 +1,2591 @@
+---
+title: "Supplementary material for a systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system"
+author: |
+  David J. A. Taylor
+  [<img src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" alt="ORCID icon" width="16" height="16">](https://orcid.org/0000-0001-8801-7488)
+date: "September 2023"
+output: 
+  bookdown::html_document2:
+    toc: true
+    toc_float: true
+bibliography: review_supplementary_material_references.bib 
+csl: apa-old-doi-prefix.csl
+---
+
+[![DOI](https://zenodo.org/badge/664429132.svg)](https://zenodo.org/badge/latestdoi/664429132)
+
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(kableExtra)
+library(formattable)
+library(meta)
+library(dmetar)
+library(magick)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# About
+
+This page contains supplementary material for a systematic review titled <i>"Systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system"</i>.
+
+The following information is provided here:
+
+* <b>List of excluded studies</b> — includes details of studies that might appear to meet the inclusion criteria, but which were excluded.
+* <b>Supplementary information about included interventions</b> — including a description of the intervention, its intended outcomes, eligibility criteria and details of how it is delivered.
+* <b>Search Strategy and Results</b> — includes search strategies and results for each published database and grey sources
+* <b>Data extraction templates and results</b> — includes the template and information extracted from each included study used to transform into a common effect size
+* <b>Publication Bias Assessment Results</b> — includes both funnel plots displaying the relationship between study precision and effect sizes and results of Egger's test of the intercept for all outcomes included in a quantitative synthesis
+* <b>GRADE Assessments</b> — summary and detailed GRADE assessments are available for outcomes included in a quantitative synthesis
+* <b>PRISMA 2020 Checklist</b> — includes details of how this review meets the PRISMA 2020 reporting guidelines
+
+The analysis code is available in a [GitHub repository](https://github.com/davetayl-r/transitions-review).
+
+# List of excluded studies
+
+```{r tables-excluded-studies, echo=FALSE}
+
+## READ DATA
+
+excluded_studies_file_location <- "./supplementary-material/inputs/excluded_studies.xlsx"
+excluded_studies <- readxl::read_excel(
+  excluded_studies_file_location,
+  sheet = "studies") 
+
+excluded_studies %>%
+  mutate(
+    lead = "@",
+    Reference = str_c(
+      lead, 
+      Reference, 
+      sep = "")
+  ) %>%
+  select(
+    -lead
+  ) %>%
+  kable(
+    caption = 'Select list of excluded studies'
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+# Supplementary information about included interventions
+
+### Better Futures
+
+#### Description
+
+The Better Futures program aims to empower and support young people who are in foster care and have serious mental health challenges to enter post-secondary education. The program is grounded in self-determination and involves a range of group and one-to-one interventions designed to support participants to identify and work towards their own post-secondary goals. 
+
+#### Intended outcomes
+
+The primary intended outcome is that participants enroll in higher education. 
+
+#### Eligibility criteria
+
+To be enrolled in Better Futures, young people need to:  
+
+* reside in the program’s catchment area,  
+* be in the guardianship of the state foster care system,  
+* be in secondary education (high school or GED program) and one or two years away from completion,  
+* be open to the possibility of higher or vocation education and have not yet applied,  
+* have been identified as experiencing significant mental health challenges (for example, be receiving mental health counselling, or be receiving special education services for an emotional disability or be on a psychotropic medication or be living in a therapeutic setting); and  
+* be able to attend community-based sessions (i.e. not residing in a secure facility).  
+
+#### Delivery
+
+<b>Length of support:</b>	The program lasts for approximately ten months.
+
+<b>Mode of delivery:</b> The program is primarily delivered by ‘Peer Coaches’ – young people under the age of 28 enrolled in higher education with lived experience of foster care and/or mental health challenges – with support from Intervention Managers. The model comprises three components: (1) A brief residential ‘summer institute’ with an emphasis on higher education preparation for young people in foster care with mental health difficulties (e.g. through campus tours, information sessions and facilitated discussions on relevant topics, and social activities. (2) One-to-one, peer coaching sessions which focus on identifying and working towards individual post-secondary goals, as well as working through a series of experiential activities and self-determination skills. (3) Group mentoring workshops in which participants and peer coaches come together for expert-guided discussions and related practical activities on relevant topics (e.g. college applications and application writing exercises). 
+
+<b>Intensity of support:</b>	Over the course of the program, participants have access to one residential camp (of 4 days/3 nights); followed by bi-monthly, one-to-one coaching sessions for a period of nine months; and four group workshops.
+
+<b>Access to implementation support:</b> The Peer Coaches are provided with approximately 40 hours of training; an intervention protocol and access to weekly group and individual supervision from Intervention Managers.
+
+<i>Source:</i> @geenen_better_2015
+
+### Extended foster care (EFC) in Illinois or Washington
+
+#### Description
+
+‘Extended foster care’ (EFC) describes the extension of the age limit for foster care, and eligibility for associated support services, from 18 to 21 years of age. In the United States, the 2008 ‘Fostering Connections to Success and Increasing Adoptions Act’ made it possible for states to implement extended foster care at state level. There is variation in EFC implementation – eligibility, funding and services provided – between states. 
+
+#### Intended outcomes 
+
+By enabling young people to remain in care beyond their 18th birthday and up to 21 years of age, EFC aims to improve the outcomes of foster youth into adulthood.
+
+#### Eligibility criteria 
+
+To be eligible for EFC, young people need to:  
+
+* be in foster care in the state of Illinois or Washington; and  
+* be aged 18 to 21 years old.  
+
+<i>Source:</i> @courtney_potential_2017, @lee_formal_2012, @strahl_multinational_2020, @miller_extended_2020, @mendes_young_2020
+
+### ICare2CHECK
+
+#### Description
+
+The ICare2CHECK program is a brief health care education intervention, providing access to a health care booklet and companion website designed in collaboration with young people with lived experience of foster care, which aim to support young people transitioning out of foster care to navigate the health care system. 
+
+#### Intended outcomes 
+
+The primary goals of the program are to increase use of health care services by foster youth aged 16 and over and to decrease use of urgent care services.
+
+#### Eligibility criteria
+
+To be enrolled in the ICare2CHECK program, young people need to:
+* be in foster care under the custody of child protective services (CPS) for at least 12 months;
+* aged 16 years old or over; and
+* be approaching emancipation from CPS custody.
+
+#### Delivery
+
+<b>Length of support:</b>	One-off receipt of health care education materials.
+
+<b>Mode of delivery:</b>	The ICare2CHECK program involves one-off receipt of health care education materials, including a pocket-sized booklet (‘ICareGuide’) and access to a companion website. The materials aim to support young people to navigate the health care system and include information on how and when to access medical support; information on appropriate hotlines; information on preventive health care including relating to pregnancy and sexually transmitted infections; and instructions on how to apply for health insurance. In addition, the website included interactive tools to assist young people in locating health care services and decision-making around what level of medical service to access.
+
+<b>Intensity of support:</b>	One-off receipt of a health care booklet and access to a companion website.    
+
+<b>Access to implementation support:</b>	No information available.
+
+<i>Source:</i> @beal_impact_2020
+
+### Independent Living – Employment Services Program, Kern County, California
+
+#### Description
+
+The Independent Living – Employment Services (IL-ES) program, created in 1999 by the Department of Human Services in California, is designed to equip young people in foster care (or on probation), with the encouragement, skills and resources they require to secure employment. 
+
+#### Intended outcomes 
+
+The primary intended outcome of the IL-ES program is that participants obtain and maintain secure employment. Secondary goals include participants’ development of life skills and resources, enabling them to avoid use of public assistance in future. 
+
+#### Eligibility criteria
+
+To be enrolled in the IL-ES program, young people need to:
+
+* reside in Kern County, California, the catchment area for the program;
+* be in foster care under Kern County Department of Human Services (DHS) (or have ‘aged out’ of the foster care system), be on probation or under subsidized guardianship; 
+* be aged 16 to 21 years old; and
+* have been assessed as eligible for independent living services by their social worker. 
+
+#### Delivery
+
+<b>Length of support:</b>	Due to the voluntary nature of the program, the duration of support varies by individual participant. Some participants will receive only the initial letter, while others will receive regular, ongoing support up to the age of 21 years.
+
+<b>Mode of delivery:</b>	The IL-ES program comprises two main elements: (1) An introductory letter and subscription to a regular job listing alert and (2) one-to-one employment support. An introductory letter inviting the young person to participate in the program and weekly newsletters, highlighting job opportunities, are sent to all eligible young people. Young people who express interest in additional services are assessed by an IL-ES worker to identify their employment needs and goals and have access to a range of other one-to-one and group support. One-to-one support includes support in searching for jobs; support in preparing a CV or job application; financial and practical help in buying interview clothes; and support in accessing other services, as needed. Participants can also access employment skills workshops. Employment services are provided by qualified social services staff with training in employment support. 
+
+<b>Intensity of support:</b>	Participants receive weekly newsletters. The intensity of one-to-one support varies according to a young person’s expressed goals, however, IL-ES staff maintain regular contact either via telephone or through face-to-face visits. Two to four employment-skills workshops are held per year.
+
+<b>Access to implementation support:</b>	No information available. 
+
+<i>Source:</i> @zinn_helping_2017, @courtney_evaluation_2011
+
+### Independent Living Services 
+
+#### Description
+
+‘Independent Living Services’ (ILS) encompasses the broad range of federally funded services offered to young people transitioning from foster care to independent living in the United States of America (USA). ILS service delivery varies between states; however, an emphasis is placed on education and employment services.
+
+#### Intended outcomes 
+
+The primary goal of ILS is to support a successful transition into adulthood for young people leaving foster care in the USA. An emphasis is placed on ILS recipients completing high school or GED certification, and on securing employment. 
+
+#### Eligibility criteria
+
+To access ILS, young people need to:
+
+* Be in foster care in the USA;
+* Be identified as likely to remain in foster care until the age of 18; and,
+* Meet eligibility criteria at state level. 
+
+#### Delivery
+
+<b>Length of support:</b>	No information available. Varies at individual level.   
+
+<b>Mode of delivery:</b>	ILS academic support for high-school or GED completion may include (a) tutoring, (b) homework, and (c) provision of educational resources. ILS employment-related services that aim to support young people in securing and maintaining employment may include: (a) career or vocational assessment, (b) internships, classes, or training for skills development in a particular occupation, (c) job coaching. ILS also includes mentoring services through which eligible young people are connected with mentors, who provide regular support. Financial assistance is also provided through ILS for tuition, relevant services and supplies.
+
+<b>Intensity of support:</b>	No information available. Varies at individual level.   
+
+<b>Access to implementation support:</b>	No information available.
+
+<i>Source:</i> @kim_estimating_2019
+
+### Interactive Healthy Lifestyle Preparation (iHeLP)
+
+#### Description
+
+Interactive Healthy Lifestyle Preparation (iHeLP) is a computer- and mobile phone-based app that dynamically adapts to a participant’s current motivation to influence their substance use. The application is based on motivational interviewing principles. Participants complete an initial computer-based screening at baseline that seeks to assess their readiness to change. Future interaction, which is tailored to information provided during the baseline assessment, takes place through text messaging on a participant’s phone. 
+
+#### Intended outcomes
+
+The primary goal of iHeLP is to reduce substance misuse by supporting participants to set goals and motivate them to follow through with them. 
+
+#### Eligibility criteria
+
+To be enrolled in the iHeLP trial, young people need to meet the following criteria:
+
+* Aged between 18 and 19,
+* Have left foster care no more than two years ago,
+* Scored a ‘moderate’ or ‘severe’ risk on the Alcohol, Smoking, and Substance Involvement Screening Test,
+* Are not currently enrolled in, or seeking, substance abuse treatment,
+* Own a mobile phone, and
+* Use text messaging at least weekly.
+
+#### Delivery
+
+<b>Length of support:</b>	Service length is not time limited, although the pilot was limited to a 12-month follow up
+
+<b>Mode of delivery:</b>	iHeLP is a text message-based intervention
+
+<b>Intensity of support:</b>	Participants are sent poll questions via notifications weekly, prompting them to engage with the app
+
+<b>Access to implementation support:</b>	Not available
+
+<i>Source:</i> @braciszewski_pilot_2018
+
+### Life Skills Training Program: Los Angeles County 
+
+#### Description
+
+The Life Skills Training (LST) Program of Los Angeles County was created in 1987 to equip young people in state custody, either through foster care or on probation , with the skills and resources required to live independently. program participants are provided access to a five-week classroom-based life-skills course covering core competency areas set by the State: education, employment, daily living skills, survival skills, understanding choices and consequences, interpersonal skills and IT skills. The program also has an outreach component which involves active recruitment of young people into the program and short-term case-management services.
+
+#### Intended outcomes 
+
+The intended outcomes of the LST program of Los Angeles County are that young people develop the skills they require for independent living, complete their high-school education and move on to higher-education or training.
+
+#### Eligibility criteria
+
+To be enrolled in the LST program, young people need to:
+
+* reside within the program catchment area,
+* be aged 16 or older at referral to the program,
+* be in a foster care placement under the guardianship of the Department of Child and Family Services (DCFS) or on probation,
+* be referred to the program by their transition coordinator at DCFS or the Probation Department, and
+* have a goal of, or be preparing to move to, independent living.
+
+#### Delivery
+
+<b>Length of support:</b>	The program lasts for approximately five weeks.
+
+<b>Mode of delivery:</b> The LST program comprises two elements: (1) A brief classroom-based intervention offered in a convenient community college setting which covers core competency areas related to life skills and independent living. Although usually classroom-based, workshop instructors are allowed flexibility in material delivery and sessions may take the form of out-of-classroom practical activities (e.g. taking public transportation, or grocery shopping) or involve guest speakers. Pre- and post-assessments are carried out to evaluate progress in skill acquisition. Transportation, food and money are offered to remove barriers to attendance. (2) ‘Outreach’ or short-term case-management support offered by ‘Outreach Advisors’ (OAs) – typically college graduates with experience in youth work. OAs also take an active role in recruiting young people to the program, usually by visiting the young person in their home. Peer Counsellors, former foster youth and, typically, LST graduates also provide classroom assistance to the workshop instructors and general support for program operations. 
+
+<b>Intensity of support:</b>	The classroom-based component involves 30 hours of life skills training, offered as three-hour classes, twice a week over a five-week period. One-to-one case management support is also available during this time. 
+
+<b>Access to implementation support:</b>	OAs receive (initial and ongoing) training and an ‘Outreach Advisor Training Manual’ is also provided. Workshop instructors are provided with workshop curriculum and quarterly training. 
+
+<i>Source:</i> @greeson_development_2015, @courtney_evaluation_2008
+
+### Massachusetts Adolescent Outreach Program for Youths in Intensive Foster Care
+
+#### Description
+
+The ‘Massachusetts Adolescent Outreach Program for Youths in Intensive Foster Care’ (or ‘Outreach’ program) aims to support young people as they transition out of intensive foster care into independent living. Outreach workers provide one-to-one assistance, tailored to the young person’s self-identified needs and goals. program activities are geared towards providing a sense of support to the young person, through the development of a trusting relationship with their Outreach worker, while also enabling participants to develop skills and resources for independent living through hands-on assistance in practical tasks (e.g. in accessing available financial support, obtaining housing, applying for further education or employment, and facilitating referrals to appropriate services). 
+
+#### Intended outcomes 
+
+The primary goals of the Outreach program are to support young people leaving intensive foster care to develop the skills, connections and capital that they will need to live as an independent adult. While intended outcomes vary according to participant needs, a particular emphasis is placed on the acquisition of life skills, participation in further education and/or securing employment and the development of supportive relationships.
+
+#### Eligibility criteria
+
+To be enrolled in the Outreach program, young people need to:  
+
+* be in intensive foster care under the guardianship of Massachusetts Department of Children and Families;  
+* be aged 16 or older at referral to the program; and  
+* have a goal of living independently. 
+
+#### Delivery
+
+<b>Length of support:</b>	The program duration is not fixed, however, on average young people received support for 22 months: 16 months of hands-on assistance, followed by six months of intermittent check-ins.
+
+<b>Mode of delivery:</b> The program is delivered by Outreach workers, under supervision from Outreach supervisors. Outreach workers work to (a) develop and follow a plan with the young person through initial and ongoing assessment of their needs and goals, (b) have weekly meetings during which they provide hands-on, individualized support in achieving the young person’s goals (e.g. applying for higher education or employment), and (c) refer participants to other services as appropriate. Once a young person is assessed as having met the goals set out in their personal plan, weekly ‘assistance’ meetings are concluded and the young person is moved to ‘tracking’ status for approximately six months, during which time the Outreach worker maintains intermittent contact with the young person before discharging them from the program.
+
+<b>Intensity of support:</b>	Outreach workers typically meet with young people on a weekly basis; however, young people can request more or less frequent meetings depending on their needs.
+
+<b>Access to implementation support:</b> Outreach workers receive formal pre-service training and informal training through shadowing colleagues ‘on the job’. Ongoing training is available, and Outreach supervisors provide weekly supervision. 
+
+<i>Source:</i> @greeson_foster_2015, @courtney_evaluation_2011-1
+
+### New York City/New York State–Initiated Third Supportive Housing Program (NYNY III)
+
+#### Description
+
+The ‘New York City/New York State-Initiated Third Supportive Housing Program’ (NYNY III) was developed in 2007 to provide supportive housing for young people at risk of becoming homeless, including youth transitioning out of the foster care system. The program is based on a “housing first” approach, which posits that provision of housing to people with unstable living conditions will ultimately improve health outcomes, even without specific health interventions.
+
+#### Intended outcomes 
+
+The primary intended outcome of the NYNY III program is that young people transitioning out of the foster care system to independent living avoid homelessness and secure stable housing. In addition, the program aims to reduce sexually transmitted infections, which are associated with unstable housing experiences, among this group.
+
+#### Eligibility criteria
+
+To be enrolled in the NYNY III program, young people need to:
+
+* Be in foster care in the New York State area; and
+* Meet one of the following criteria: be preparing to leave foster care within the following six months, have left foster care within the previous two years, or have been in foster care for at least one year following their 16th birthday.
+
+#### Delivery
+
+<b>Length of support:</b>	No information available.
+
+<b>Mode of delivery:</b>	The NYNY III program has two main modes of delivery: (1) provision of affordable housing and (2) access to additional supportive services to help young people live independently. Services available through NYNY III include: case management support, employment training, education-related support, and support in accessing appropriate health (physical and mental health) services 
+
+<b>Intensity of support:</b>	No information available.   
+
+<b>Access to implementation support:</b>	No information available.
+
+<i>Source:</i> @lim_impact_2017
+
+### Premier’s Youth Initiative
+
+#### Description
+
+The Premier’s Youth Initiative (PYI) was developed by the Department of Communities and Justice in New South Wales, Australia. program participants are provided access to advice and services facilitated by a team of three workers: The Personal Advisor, who is the key point of contact for the young person, the Education and Employment Mentor and the Transition Support Worker. PYI seeks to build young peoples’ material resources, independent living skills, social connections and human capital. 
+
+#### Intended outcomes
+
+The primary goal of PYI is to prevent youth homelessness. Secondary goals are improving the employment, education and relationship outcomes of young people.
+
+#### Eligibility criteria
+
+To be enrolled in PYI, young people need to:
+* Reside in catchments where services are provided (within the state of NSW);
+* Be aged between 16.75 (16 years and 9 months) and 17.5 (17 years and 6 months) at the commencement of services; 
+* Meet one or more of the following criteria: leaving residential OOHC, leaving OOHC with placement instability, leaving a permanent OOHC placement, and leaving OOHC after being in care 12 months or longer; and
+* Be capable of living independently.
+
+#### Delivery
+
+<b>Length of support:</b>	Service length is not time limited.
+
+<b>Mode of delivery:</b>	The PYI team (Personal Advisor, Education and Employment Mentor and Transition Support Worker) work to (a) support the implementation of a leaving care plan, and b) the development of prosocial networks; the team provides (c) education and employment mentoring and (d) transitional support, including housing. Services are provided primarily at the individual level; however, some providers might undertake group activities (e.g. cooking classes). Services providers are paid professionals without clinical qualifications.
+
+<b>Intensity of support:</b>	There is no guidance on the intensity of support beyond that it should be ‘directed by the individual’ engaging with the service.
+
+<b>Access to implementation support:</b> program guidelines only.
+
+<i>Source:</i> @taylor_evaluation_2020
+
+### TAKE CHARGE
+
+#### Description
+
+The TAKE CHARGE program is a coaching and workshop-based intervention, designed to enhance self-determination and improve outcomes for vulnerable young people in the transition to adulthood. Though originally developed for all young people, the model was designed to be accessible for young people with disabilities and was adapted specifically for young people who are both in foster care and receiving special education support. 
+
+#### Intended outcomes 
+
+The intended outcomes of the TAKE CHARGE program are that participants enhance their ‘self-determination’ skills and are able to identify and work towards self-identified ‘transition’ goals. 
+
+#### Eligibility criteria
+
+To be enrolled in the TAKE CHARGE RCT, young people need to:
+
+* reside in the program catchment area;
+* be receiving special education support;
+* be in foster care (for at least 90 days) under the guardianship of Oregon Department of Human Services (DHS); and
+* be aged 16.5 to 17.5 years.
+
+#### Delivery
+
+<b>Length of support:</b>	The program lasts for approximately 12 months.
+
+<b>Mode of delivery:</b>	The program model comprises two elements: (1) weekly coaching and (2) group workshops. Weekly one-on-one coaching sessions aim to support young people to develop self-determination skills (e.g. goal setting, problem solving, partnership development and self-regulation); to identify their own ‘transition-related’ goals; and to work towards achieving their goals over the course of a year (through practical support and encouragement). Direct practical support (e.g. making phone calls to relevant services) is gradually faded out as the participant demonstrates increasing skill level and motivation. Participants receive a ‘Self-help guide’ which outlines the skill areas covered in their coaching sessions and is designed to guide them through the transition planning process. The timing of sessions is flexible to suit the needs of participants. A number of adaptations were made to TAKE CHARGE to suit the needs of young people in foster care – including flexibility in the sequence of coaching sessions and the revision of the guide to incorporate information relevant to foster youth and the transition to independence. Coaches also liaise closely with foster parents, through monthly updates, to engage them in the process. ‘Mentoring workshops’ are held on a quarterly basis and focused on topics such as education, employment and transitioning out of foster care. The workshops provide an opportunity for participants to meet with other young people participating in the program and ‘mentors’ – TAKE CHARGE graduates with lived experience of foster care, 3 to 4 years older, who are enrolled in higher education, employed or had experience in overcoming barriers during their own transition from foster care. 
+
+<b>Intensity of support:</b>	Coaching is one-to-one and carried out weekly. Four ‘Mentoring Workshops’ are held, one per quarter, over the 12-month program. Coaches provide monthly updates to Foster Parents. 
+
+<b>Access to implementation support:</b> ‘Mentors’ received training prior to the workshops. No information was available on training or support to TAKE CHARGE Coaches. 
+
+<i>Source:</i> @powers_my_2012
+
+### True North
+
+#### Description
+
+True North is a multi-component intervention where participants are engaged in group workshops and individual sessions on relationship skills and financial stability, and also receive employment assistance and mentoring.
+
+#### Intended outcomes 
+
+In the short to medium term the intervention seeks to improve relationships and job readiness for participants. Longer-term, it seeks to improve financial stability and overall well-being.
+
+#### Eligibility criteria
+
+To be enrolled in the True North, young people need to:
+
+* age 17 and currently in foster care; 
+* young adults ages 17-23 currently in extended foster care; 
+* young adults who were involved in foster care at some point in their lives; and 
+* residing in Broward County at the time of enrollment.
+
+#### Delivery
+
+<b>Length of support:</b>	The intervention lasts for approximately 12 months.
+
+<b>Mode of delivery:</b> The model comprises three content modules that are delivered by trained staff: a) healthy relationships, b) economic stability and c) mentoring. Healthy relationships are supported through implementation of the 'Love Notes Healthy Relationships Curriculum', which is delivered as part of group workshops and individual sessions. Economic stability is covered through teaching financial literacy and job readiness in both group workshops and individual sessions. Job and internships opportunities are also available. Individual mentoring is provided using a strengths-based and motivational interviewing approach. 
+
+<b>Intensity of support:</b> Intensity depends on the module. For healthy relationships: 13 hours of group workshops and 7 hours of individual sessions are provided. For economic stability: 4 hours of group workshops and 7 hours of individual sessions are provided. If a participant has an internship, then they meet with there supervisor once a month and receive 1-4 hours of job coaching per month. For mentoring: participants receive 7 hours of individual sessions. 
+
+<b>Access to implementation support:</b> Level of support depended on the module. For healthy relationships: facilitators needed to have completed a bachelors degree and the Love Notes training from the intervention originator prior to delivering services. A day of refresher training was provided annually. For economic stability: financial coaches needed to have completed a bachelors degree prior to delivering services. Self-directed training on financial and vocational tools and resources was required on an ongoing basis. For mentoring: staff received strengths-based case management and motivation interviewing training prior to delivering services before providing services and on an annual basis. 	
+
+<i>Source:</i> @leip_impact_2020
+
+### Youth Villages LifeSet (YVLifeSet)
+
+#### Description
+
+The Youth Villages LifeSet (YVLifeSet) program was originally developed in 1999 by ‘Youth Villages’, a non-profit organisation operating a variety of residential and community-based youth programs across the United States. The manualized program is intended to help young people who are leaving foster care or juvenile justice custody to successfully transition to independent living by providing weekly, individualized, and clinically focused case management, counselling and support. Support is tailored to each young person’s needs, however, issues commonly addressed include education, employment and finances, stable housing, life skills development, management of relationships, and mental health and substance use. 
+
+#### Intended outcomes
+
+The primary goal of YVLifeSet is to support young people to make a successful transition to independent living from foster care or juvenile justice custody. Due to the individualized nature of the program, targeted outcomes are wide-ranging and tailored to the particular needs and goals of each young person. Particular emphasis is placed on maintenance of stable housing; avoidance of involvement with the criminal justice system and a reduction in risky behaviours; participation in education or vocational training; obtaining formal employment; and having improved mental health and access to social support. 
+
+#### Eligibility criteria
+
+To be enrolled in YVLifeSet RCT, young people need to:
+
+* be in the custody of the child welfare system, either in foster care or in the juvenile justice system and approaching independence from state custody;
+*	be contactable and interested in program services;
+* be aged 17 to 24;
+* not have a history of severe violence, mental health problems, drug use, and/or developmental delays; and
+* be assessed by program staff as capable of living independently.
+
+#### Delivery
+
+<b>Length of support:</b>	The program lasts between nine and twelve months. 
+
+<b>Mode of delivery:</b> The program is delivered by ‘Transitional Living specialists’ (‘TL specialists’) with supervision from clinical supervisors, and clinical consultants. The program starts with an assessment and the development of a treatment plan based on the young person’s needs and goals. TL specialists meet with the participants on a weekly basis, in their home or in convenient community locations, and engage in activities related to their personal plan. One-to-one sessions are based on three methodologies: (a) the use of evidence-informed tools (including curricula on topics such as money management and behavioural treatment strategies for issues including substance abuse); (b) counselling (oriented towards supporting the young person achieving their stated goals); and (c) appropriate action-oriented activities (e.g. taking a young person to a bank to open an account). TL specialists may also refer young people to other relevant community-based services and encourage participants to attend group social and learning activities with other program participants. An ‘educational/vocational coordinator’ is available to provide additional support to young people who want to go to college, enrol in vocational training or find a job. All program participants are screened for trauma and, where appropriate, have access to (12-20 weeks’) therapy by trained staff. TL specialists are not typically clinically qualified but have (as a minimum) a bachelor’s degree in a relevant field. 
+
+<b>Intensity of support:</b> TL specialists typically have a caseload of eight young people. Participants meet for one-hour, one-to-one meetings on a weekly basis. Young people may also attend monthly group sessions with other program participants. 
+
+<b>Access to implementation support:</b> TL specialists are provided with a program treatment manual which outlines the methodologies that they are expected to employ when working with young people. Training is provided in evidence-based clinical practices (e.g. motivational interviewing). Clinical supervisors provide weekly group supervision to four or five TL specialists and, in turn, clinical supervisors receive supervision from clinical consultants.
+
+<i>Source:</i> @courtney_experimental_2019, @valentine_becoming_2015, @skemer_striving_2016, @manno_moving_2014
+
+# Search Strategy and Results
+
+This section details the results of our search strategy of databases.
+
+## Overview of electronic databases
+
+```{r tables-overview-electronic-databases, echo=FALSE}
+
+## READ DATA
+
+overview_info_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+overview_info <- readxl::read_excel(
+  overview_info_file_location,
+  sheet = "Overview")
+
+overview_info %>%
+  kable(
+    caption = 'Details of electronic database searches') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+## Results of electronic database searches
+
+### Cochrane Controlled Register of Trials via Ovid
+
+```{r tables-cochrane-search-results, echo=FALSE}
+
+## READ DATA
+
+cochrane_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+cochrane_search_results <- readxl::read_excel(
+  cochrane_search_results_file_location,
+  sheet = "Cochrane")
+
+cochrane_search_results %>%
+  kable(
+    caption = 'Search strategy and results for Cochrane Controlled Register of Trials via Ovid') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### CINAHL via EBSCO
+
+```{r tables-cinahl-search-results, echo=FALSE}
+
+## READ DATA
+
+cinahl_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+cinahl_search_results <- readxl::read_excel(
+  cinahl_search_results_file_location,
+  sheet = "CINAHL")
+
+cinahl_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for CINAHL via EBSCO') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### ERIC via Proquest
+
+```{r tables-eric-search-results, echo=FALSE}
+
+## READ DATA
+
+eric_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+eric_search_results <- readxl::read_excel(
+  eric_search_results_file_location,
+  sheet = "ERIC")
+
+eric_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for ERIC via Proquest') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### PsycINFO via Ovid
+
+```{r tables-psycinfo-search-results, echo=FALSE}
+
+## READ DATA
+
+psycinfo_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+psycinfo_search_results <- readxl::read_excel(
+  psycinfo_search_results_file_location,
+  sheet = "PsycINFO")
+
+psycinfo_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for PsycINFO via Ovid') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### MEDLINE via Ovid
+
+```{r tables-medline-search-results, echo=FALSE}
+
+## READ DATA
+
+medline_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+medline_search_results <- readxl::read_excel(
+  medline_search_results_file_location,
+  sheet = "MEDLINE")
+
+medline_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for MEDLINE via Ovid') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### EMBASE via Ovid
+
+```{r tables-embase-search-results, echo=FALSE}
+
+## READ DATA
+
+embase_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+embase_search_results <- readxl::read_excel(
+  embase_search_results_file_location,
+  sheet = "EMBASE")
+
+embase_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for EMBASE via Ovid') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### Sociological Abstracts via Proquest
+
+```{r tables-socio-abstracts-search-results, echo=FALSE}
+
+## READ DATA
+
+socio_abstracts_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+socio_abstracts_search_results <- readxl::read_excel(
+  socio_abstracts_search_results_file_location,
+  sheet = "Sociological_Abstracts")
+
+socio_abstracts_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for Sociological Abstracts via Proquest') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### Social Services Abstracts via Proquest
+
+```{r tables-soc-services-abs-search-results, echo=FALSE}
+
+## READ DATA
+
+soc_services_abs_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+soc_services_abs_search_results <- readxl::read_excel(
+  soc_services_abs_search_results_file_location,
+  sheet = "Soc_Service_Abstracts")
+
+soc_services_abs_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for Social Services Abstracts via Proquest') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### SocIndex via EBSCO
+
+```{r tables-socindex-search-results, echo=FALSE}
+
+## READ DATA
+
+socindex_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+socindex_search_results <- readxl::read_excel(
+  socindex_search_results_file_location,
+  sheet = "SocIndex")
+
+socindex_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for SocIndex via EBSCO') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### NHS Economic Evaluation Database via Ovid
+
+```{r tables-nhs-econ-search-results, echo=FALSE}
+
+## READ DATA
+
+nhs_econ_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+nhs_econ_search_results <- readxl::read_excel(
+  nhs_econ_search_results_file_location,
+  sheet = "NHS_Econ")
+
+nhs_econ_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for NHS Economic Evaluation Database via Ovid') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+### Health Technology Assessment via Ovid
+
+```{r tables-hta-search-results, echo=FALSE}
+
+## READ DATA
+
+hta_search_results_file_location <- "./supplementary-material/inputs/search_results.xlsx"
+hta_search_results <- readxl::read_excel(
+  hta_search_results_file_location,
+  sheet = "HTA")
+
+hta_search_results %>%
+  kbl(
+    caption = 'Search strategy and results for Health Technology Assessment via Ovid') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+## Overview of Grey Literature sources 
+
+```{r tables-grey-lit-overview, echo=FALSE}
+
+## READ DATA
+
+grey_lit_overview_file_location <- "./supplementary-material/inputs/grey_lit_search_results.xlsx"
+grey_lit_overview <- readxl::read_excel(
+  grey_lit_overview_file_location,
+  sheet = "Overview")
+
+grey_lit_overview %>%
+  kbl(
+    caption = 'Details of grey literature searches') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+## Results of Grey Literature searches
+
+```{r tables-grey-lit-search-results, echo=FALSE}
+
+## READ DATA
+
+grey_lit_search_results_file_location <- "./supplementary-material/inputs/grey_lit_search_results.xlsx"
+grey_lit_search_results <- readxl::read_excel(
+  grey_lit_search_results_file_location,
+  sheet = "SearchResults")
+
+grey_lit_search_results %>%
+  kbl(
+    caption = 'Results of grey literature searches') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6")
+```
+
+# Data extraction templates and results
+
+```{r data-extration-homelessness, echo=FALSE}
+
+options(knitr.kable.NA = '')
+
+data_extraction_homelessness_data_location <- "./es-transformation/data/es_input.xlsx"
+data_extraction_homelessness <- read_excel(
+  data_extraction_homelessness_data_location,
+  sheet = "homelessness")
+
+data_extraction_homelessness %>%
+  mutate(
+    grp1n = round(grp1n, 0),
+    grp2n = round(grp2n, 0),
+    prop1event = round(prop1event, 3),
+    prop2event = round(prop2event, 3)
+  ) %>%
+  kbl(
+    caption = 'Quantitative data extraction: housing and homelessness outcomes') %>% 
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12
+  ) %>%
+  column_spec(
+    1:2, width_min = "15em") %>%
+  column_spec(
+    3, width_min = "10em") %>%
+  column_spec( 
+    30, width_min = '50em') %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  scroll_box(
+      width = "100%", height = "600px") 
+
+```
+
+```{r data-extration-health-wellbeing, echo=FALSE}
+
+options(knitr.kable.NA = '')
+
+data_extraction_health_data_location <- "./es-transformation/data/es_input.xlsx"
+data_extraction_health <- read_excel(
+  data_extraction_health_data_location,
+  sheet = "health")
+
+data_extraction_health %>%
+  mutate(
+    grp1n = round(grp1n, 0),
+    grp2n = round(grp2n, 0),
+    prop1event = round(prop1event, 3),
+    prop2event = round(prop2event, 3)
+  ) %>%
+  kbl(
+    caption = 'Quantitative data extraction: health and wellbeing outcomes') %>% 
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12
+  ) %>%
+  column_spec(
+    1:2, width_min = "15em") %>%
+  column_spec(
+    3, width_min = "10em") %>%
+  column_spec( 
+    30, width_min = '50em') %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  scroll_box(
+      width = "100%", height = "600px") 
+
+```
+
+```{r data-extration-education, echo=FALSE}
+
+options(knitr.kable.NA = '')
+
+data_extraction_education_data_location <- "./es-transformation/data/es_input.xlsx"
+data_extraction_education <- read_excel(
+  data_extraction_education_data_location,
+  sheet = "education")
+
+data_extraction_education %>%
+  mutate(
+    grp1n = round(grp1n, 0),
+    grp2n = round(grp2n, 0),
+    prop1event = round(prop1event, 3),
+    prop2event = round(prop2event, 3)
+  ) %>%
+  kbl(
+    caption = 'Quantitative data extraction: education outcomes') %>% 
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12
+  ) %>%
+  column_spec(
+    1:2, width_min = "15em") %>%
+  column_spec(
+    3, width_min = "10em") %>%
+  column_spec( 
+    30, width_min = '50em') %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  scroll_box(
+      width = "100%", height = "600px") 
+
+```
+
+```{r data-extration-economic, echo=FALSE}
+
+options(knitr.kable.NA = '')
+
+data_extraction_economic_data_location <- "./es-transformation/data/es_input.xlsx"
+data_extraction_economic <- read_excel(
+  data_extraction_economic_data_location,
+  sheet = "employment")
+
+data_extraction_economic %>%
+  mutate(
+    grp1n = round(grp1n, 0),
+    grp2n = round(grp2n, 0),
+    prop1event = round(prop1event, 3),
+    prop2event = round(prop2event, 3)
+  ) %>%
+  kbl(
+    caption = 'Quantitative data extraction: economic and employment outcomes') %>% 
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12
+  ) %>%
+  column_spec(
+    1:2, width_min = "15em") %>%
+  column_spec(
+    3, width_min = "10em") %>%
+  column_spec( 
+    30, width_min = '50em') %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  scroll_box(
+      width = "100%", height = "600px") 
+
+```
+
+```{r data-extration-criminal, echo=FALSE}
+
+options(knitr.kable.NA = '')
+
+data_extraction_criminal_data_location <- "./es-transformation/data/es_input.xlsx"
+data_extraction_criminal <- read_excel(
+  data_extraction_criminal_data_location,
+  sheet = "exp_violence")
+
+data_extraction_criminal %>%
+  mutate(
+    grp1n = round(grp1n, 0),
+    grp2n = round(grp2n, 0),
+    prop1event = round(prop1event, 3),
+    prop2event = round(prop2event, 3)
+  ) %>%
+  kbl(
+    caption = 'Quantitative data extraction: criminal and delinquent behaviour outcomes') %>% 
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12
+  ) %>%
+  column_spec(
+    1:2, width_min = "15em") %>%
+  column_spec(
+    3, width_min = "10em") %>%
+  column_spec( 
+    30, width_min = '50em') %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  scroll_box(
+      width = "100%", height = "600px") 
+
+```
+
+```{r data-extration-risky, echo=FALSE}
+
+options(knitr.kable.NA = '')
+
+data_extraction_risky_data_location <- "./es-transformation/data/es_input.xlsx"
+data_extraction_risky <- read_excel(
+  data_extraction_risky_data_location,
+  sheet = "risky_behaviour")
+
+data_extraction_risky %>%
+  mutate(
+    grp1n = round(grp1n, 0),
+    grp2n = round(grp2n, 0),
+    prop1event = round(prop1event, 3),
+    prop2event = round(prop2event, 3)
+  ) %>%
+  kbl(
+    caption = 'Quantitative data extraction: risky behaviour') %>% 
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12
+  ) %>%
+  column_spec(
+    1:2, width_min = "15em") %>%
+  column_spec(
+    3, width_min = "10em") %>%
+  column_spec( 
+    30, width_min = '50em') %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  scroll_box(
+      width = "100%", height = "600px") 
+
+```
+
+```{r data-extration-skills, echo=FALSE}
+
+options(knitr.kable.NA = '')
+
+data_extraction_life_skills_data_location <- "./es-transformation/data/es_input.xlsx"
+data_extraction_life_skills <- read_excel(
+  data_extraction_life_skills_data_location,
+  sheet = "life_skills")
+
+data_extraction_life_skills %>%
+  mutate(
+    grp1n = round(grp1n, 0),
+    grp2n = round(grp2n, 0),
+    prop1event = round(prop1event, 3),
+    prop2event = round(prop2event, 3)
+  ) %>%
+  kbl(
+    caption = 'Quantitative data extraction: life skills') %>% 
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12
+  ) %>%
+  column_spec(
+    1:2, width_min = "15em") %>%
+  column_spec(
+    3, width_min = "10em") %>%
+  column_spec( 
+    30, width_min = '50em') %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  scroll_box(
+      width = "100%", height = "600px") 
+
+```
+# Publication Bias Assessment Results
+
+## Housing and homelessness outcomes
+
+```{r pub-bias-ilp-homelessness, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on experiencing homelessness 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_homelessness_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_homelessness_meta.RDS"
+ilp_homelessness_meta <- readRDS(ilp_homelessness_meta_data_location)
+
+funnel(
+  x = ilp_homelessness_meta, 
+  xlab = "Hedges' g", 
+  contour = c(0.95, 0.975, 0.99),
+  col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.4, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-residential-moves, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on number of residential moves 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_residential_moves_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_residential_moves_meta.RDS"
+ilp_residential_moves_meta <- readRDS(ilp_residential_moves_meta_data_location)
+
+funnel(
+  x = ilp_residential_moves_meta, 
+  xlab = "Hedges' g", 
+  contour = c(0.95, 0.975, 0.99),
+  col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.15, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+## Health and wellbeing outcomes
+
+```{r pub-bias-bf-qol, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of coaching and peer support programs on quality of life 16-24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+better_futures_qol_meta_data_location <- "./meta-analysis/output/meta/my_life_qol_meta.RDS"
+better_futures_qol_meta <- readRDS(better_futures_qol_meta_data_location)
+
+funnel(better_futures_qol_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(1.05, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+## Education outcomes  
+
+```{r pub-bias-ilp-hs-ged, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on completion of high school or equivalent 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_hs_ged_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_hs_ged_meta.RDS"
+ilp_hs_ged_meta <- readRDS(ilp_hs_ged_meta_data_location)
+
+funnel(
+  x = ilp_hs_ged_meta, 
+  xlab = "Hedges' g", 
+  contour = c(0.95, 0.975, 0.99),
+  col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.22, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-attended-university, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on commencement of university 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_university_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_attended_university_meta.RDS"
+ilp_university_meta <- readRDS(ilp_university_meta_data_location)
+
+funnel(ilp_university_meta, 
+       xlab = "Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))
+  legend(0.3, 0, c("p < 0.05", "p < 0.025", "p < 0.01"), 
+         bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-bf-hs-ged, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of coaching and peer support programs on high school or equivalent completion 16-24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+better_futures_hs_ged_meta_data_location <- "./meta-analysis/output/meta/my_life_hs_ged_meta.RDS"
+better_futures_hs_ged_meta <- readRDS(better_futures_hs_ged_meta_data_location)
+
+funnel(better_futures_hs_ged_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(1.05, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-bf-post-secondary-ed, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of coaching and peer support programs on commencement of post-secondary education 16-24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+better_futures_post_secondary_ed_meta_data_location <- "./meta-analysis/output/meta/my_life_post_secondary_ed_meta.RDS"
+better_futures_post_secondary_ed_meta <- readRDS(better_futures_post_secondary_ed_meta_data_location)
+
+funnel(better_futures_post_secondary_ed_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(1.05, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+## Economic and employment outcomes
+
+```{r pub-bias-ilp-earnings, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on earnings (in last 12 months) 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_earnings_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_earnings_meta.RDS"
+ilp_earnings_meta <- readRDS(ilp_earnings_meta_data_location)
+
+funnel(ilp_earnings_meta, 
+       xlab = "Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))
+  legend(0.1, 0, c("p < 0.05", "p < 0.025", "p < 0.01"), 
+         bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-employed, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on current employment 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_employed_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_employment_meta.RDS"
+ilp_employed_meta <- readRDS(ilp_employed_meta_data_location)
+
+funnel(
+  x = ilp_employed_meta, 
+  xlab = "Hedges' g", 
+  contour = c(0.95, 0.975, 0.99),
+  col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.13, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-fin-assist, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on receipt of any financial assistance 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_fin_assist_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_fin_assist_meta.RDS"
+ilp_fin_assist_meta <- readRDS(ilp_fin_assist_meta_data_location)
+
+funnel(ilp_fin_assist_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.15, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-net-worth, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on net worth 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_net_worth_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_net_worth_meta.RDS"
+ilp_net_worth_meta <- readRDS(ilp_net_worth_meta_data_location)
+
+funnel(ilp_net_worth_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.23, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-bf-employment, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of coaching and peer support programs on current employment 16-24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+better_futures_employment_meta_data_location <- "./meta-analysis/output/meta/my_life_employment_meta.RDS"
+better_futures_employment_meta <- readRDS(better_futures_employment_meta_data_location)
+
+funnel(better_futures_employment_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.6, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+## Criminal and delinquent behaviour outcomes  
+
+```{r pub-bias-ilp-delinquent-behaviours, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on delinquent behaviours 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_delinquent_behaviours_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_delinquent_behaviours_meta.RDS"
+ilp_delinquent_behaviours_meta <- readRDS(ilp_delinquent_behaviours_meta_data_location)
+
+funnel(ilp_delinquent_behaviours_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.15, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+## Risky behaviour outcomes
+
+```{r pub-bias-ilp-pregnant, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on becoming pregnant (in last 12 months) 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_pregnant_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_pregnant_meta.RDS"
+ilp_pregnant_meta <- readRDS(ilp_pregnant_meta_data_location)
+
+funnel(ilp_pregnant_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.31, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+## Life skills outcomes
+
+```{r pub-bias-ilp-prep-overall, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on overall preparedness 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_prep_overall_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_prep_overall_meta.RDS"
+ilp_prep_overall_meta <- readRDS(ilp_prep_overall_meta_data_location)
+
+funnel(ilp_prep_overall_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.13, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-prep-job, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on job-related preparedness 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_prep_job_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_prep_job_meta.RDS"
+ilp_prep_job_meta <- readRDS(ilp_prep_job_meta_data_location)
+
+funnel(ilp_prep_job_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.17, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-fin-account, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on having any financial accounts 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_fin_account_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_fin_account_meta.RDS"
+ilp_fin_account_meta <- readRDS(ilp_fin_account_meta_data_location)
+
+funnel(ilp_fin_account_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.21, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-social-sec, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on having a social security certificate 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_social_sec_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_social_sec_meta.RDS"
+ilp_social_sec_meta <- readRDS(ilp_social_sec_meta_data_location)
+
+funnel(ilp_social_sec_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.6, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-birth-cert, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on having a birth certificate 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_birth_cert_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_birth_cert_meta.RDS"
+ilp_birth_cert_meta <- readRDS(ilp_birth_cert_meta_data_location)
+
+funnel(ilp_birth_cert_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.55, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+```
+
+```{r pub-bias-ilp-drivers-lic, echo=FALSE, fig.cap="Funnel plot for meta analysis of effect of independent living programs on having a driver's licence 24 months from baseline", fig.topcaption = TRUE, crop=TRUE}
+
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+ilp_drivers_lic_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_drivers_lic_meta.RDS"
+ilp_drivers_lic_meta <- readRDS(ilp_drivers_lic_meta_data_location)
+
+funnel(ilp_drivers_lic_meta, 
+       xlab="Hedges' g", 
+       contour = c(.95, .975, .99),
+       col.contour = c("#293775", "#5956A5", "#009ADA"))  
+  legend(0.35, 0, c("p < 0.05", "p<0.025", "< 0.01"), bty = "n",
+         fill=c("#293775", "#5956A5", "#009ADA"))
+
+```
+
+## Egger's test of the intercept
+
+```{r eggers-test, echo=FALSE, warning=FALSE}
+
+## READ DATA AND RUN EGGERS TEST
+
+ilp_homelessness_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_homelessness_meta.RDS"
+ilp_homelessness_meta <- readRDS(ilp_homelessness_meta_data_location)
+
+homelessness_eggers <- eggers.test(x = ilp_homelessness_meta
+                                   ) 
+homelessness_domain <- "Homelessness"
+homelessness_outcome <- "Homelessness" 
+homelessness_intervention <- "Independent Living Program" 
+homelessness_intercept <- round(homelessness_eggers$intercept, 3)
+homelessness_intercept_ci.lo <- round(homelessness_eggers$llci, 3)
+homelessness_intercept_ci.hi <- round(homelessness_eggers$ulci, 3)
+homelessness_intercept_p <- round(homelessness_eggers$p, 3) 
+homelessness_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+homelessness_result <- paste(
+  homelessness_intercept, 
+  " [",
+  homelessness_intercept_ci.lo,
+  ", ",
+  homelessness_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+homelessness_ilp_eggers_export <- data.frame(
+  homelessness_domain,
+  homelessness_outcome,
+  homelessness_intervention, 
+  homelessness_result, 
+  homelessness_intercept_p,
+  homelessness_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_residential_moves_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_residential_moves_meta.RDS"
+ilp_residential_moves_meta <- readRDS(ilp_residential_moves_meta_data_location)
+
+residential_moves_ilp_eggers <- eggers.test(x = ilp_residential_moves_meta)                     
+
+residential_moves_ilp_domain <- "Homelessness"
+residential_moves_ilp_outcome <- "Number of residential moves" 
+residential_moves_ilp_intervention <- "Independent Living Program" 
+residential_moves_ilp_intercept <- round(residential_moves_ilp_eggers$intercept, 3)
+residential_moves_ilp_intercept_ci.lo <- round(residential_moves_ilp_eggers$llci, 3)
+residential_moves_ilp_intercept_ci.hi <- round(residential_moves_ilp_eggers$ulci, 3)
+residential_moves_ilp_intercept_p <- round(residential_moves_ilp_eggers$p, 3) 
+residential_moves_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+residential_moves_ilp_result <- paste(
+  residential_moves_ilp_intercept, 
+  " [",
+  residential_moves_ilp_intercept_ci.lo,
+  ", ",
+  residential_moves_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+residential_moves_ilp_eggers_export <- data.frame(
+  residential_moves_ilp_domain,
+  residential_moves_ilp_outcome,
+  residential_moves_ilp_intervention, 
+  residential_moves_ilp_result, 
+  residential_moves_ilp_intercept_p,
+  residential_moves_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+better_futures_qol_meta_data_location <- "./meta-analysis/output/meta/my_life_qol_meta.RDS"
+better_futures_qol_meta <- readRDS(better_futures_qol_meta_data_location)
+
+qol_ed_cpsp <- eggers.test(x = better_futures_qol_meta)     
+
+qol_cpsp_domain <- "Health and wellbeing"
+qol_cpsp_outcome <- "Quality of life" 
+qol_cpsp_intervention <- "Coaching and peer support program" 
+qol_cpsp_result <- "N/A"
+qol_cpsp_intercept_p <- NA_real_ 
+qol_cpsp_interpretation <- "Not enough included studies to use Eggers' test"
+
+qol_cpsp_export <- data.frame(
+  qol_cpsp_domain,
+  qol_cpsp_outcome,
+  qol_cpsp_intervention, 
+  qol_cpsp_result, 
+  qol_cpsp_intercept_p,
+  qol_cpsp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_hs_ged_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_hs_ged_meta.RDS"
+ilp_hs_ged_meta <- readRDS(ilp_hs_ged_meta_data_location)
+
+hs_ged_ilp_eggers <- eggers.test(x = ilp_hs_ged_meta)                     
+
+hs_ged_ilp_domain <- "Education"
+hs_ged_ilp_outcome <- "High school or equivalent completion" 
+hs_ged_ilp_intervention <- "Independent Living Program" 
+hs_ged_ilp_intercept <- round(hs_ged_ilp_eggers$intercept, 3)
+hs_ged_ilp_intercept_ci.lo <- round(hs_ged_ilp_eggers$llci, 3)
+hs_ged_ilp_intercept_ci.hi <- round(hs_ged_ilp_eggers$ulci, 3)
+hs_ged_ilp_intercept_p <- round(hs_ged_ilp_eggers$p, 3) 
+hs_ged_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+hs_ged_ilp_result <- paste(
+  hs_ged_ilp_intercept, 
+  " [",
+  hs_ged_ilp_intercept_ci.lo,
+  ", ",
+  hs_ged_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+hs_ged_ilp_eggers_export <- data.frame(
+  hs_ged_ilp_domain,
+  hs_ged_ilp_outcome,
+  hs_ged_ilp_intervention, 
+  hs_ged_ilp_result, 
+  hs_ged_ilp_intercept_p,
+  hs_ged_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_university_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_attended_university_meta.RDS"
+ilp_university_meta <- readRDS(ilp_university_meta_data_location)
+
+attended_university_ilp_eggers <- eggers.test(x = ilp_university_meta)                     
+
+attended_university_ilp_domain <- "Education"
+attended_university_ilp_outcome <- "Commencement of university" 
+attended_university_ilp_intervention <- "Independent Living Program" 
+attended_university_ilp_intercept <- round(attended_university_ilp_eggers$intercept, 3)
+attended_university_ilp_intercept_ci.lo <- round(attended_university_ilp_eggers$llci, 3)
+attended_university_ilp_intercept_ci.hi <- round(attended_university_ilp_eggers$ulci, 3)
+attended_university_ilp_intercept_p <- round(attended_university_ilp_eggers$p, 3) 
+attended_university_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+attended_university_ilp_result <- paste(
+  attended_university_ilp_intercept, 
+  " [",
+  attended_university_ilp_intercept_ci.lo,
+  ", ",
+  attended_university_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+attended_university_ilp_eggers_export <- data.frame(
+  attended_university_ilp_domain,
+  attended_university_ilp_outcome,
+  attended_university_ilp_intervention, 
+  attended_university_ilp_result, 
+  attended_university_ilp_intercept_p,
+  attended_university_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+better_futures_hs_ged_meta_data_location <- "./meta-analysis/output/meta/my_life_hs_ged_meta.RDS"
+better_futures_hs_ged_meta <- readRDS(better_futures_hs_ged_meta_data_location)
+
+hs_ged_cpsp <- eggers.test(x = better_futures_hs_ged_meta)     
+
+hs_ged_cpsp_domain <- "Education"
+hs_ged_cpsp_outcome <- "High school or equivalent completion" 
+hs_ged_cpsp_intervention <- "Coaching and peer support program" 
+hs_ged_cpsp_result <- "N/A"
+hs_ged_cpsp_intercept_p <- NA_real_
+hs_ged_cpsp_interpretation <- "Not enough included studies to use Eggers' test"
+
+hs_ged_cpsp_export <- data.frame(
+  hs_ged_cpsp_domain,
+  hs_ged_cpsp_outcome,
+  hs_ged_cpsp_intervention, 
+  hs_ged_cpsp_result, 
+  hs_ged_cpsp_intercept_p,
+  hs_ged_cpsp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+better_futures_post_secondary_ed_meta_data_location <- "./meta-analysis/output/meta/my_life_post_secondary_ed_meta.RDS"
+better_futures_post_secondary_ed_meta <- readRDS(better_futures_post_secondary_ed_meta_data_location)
+
+post_secondary_ed_cpsp <- eggers.test(x = better_futures_post_secondary_ed_meta)     
+
+post_secondary_ed_cpsp_domain <- "Education"
+post_secondary_ed_cpsp_outcome <- "Commencement of post-secondary education" 
+post_secondary_ed_cpsp_intervention <- "Coaching and peer support program" 
+post_secondary_ed_cpsp_result <- "N/A"
+post_secondary_ed_cpsp_intercept_p <- NA_real_ 
+post_secondary_ed_cpsp_interpretation <- "Not enough included studies to use Eggers' test"
+
+post_secondary_ed_cpsp_export <- data.frame(
+  post_secondary_ed_cpsp_domain,
+  post_secondary_ed_cpsp_outcome,
+  post_secondary_ed_cpsp_intervention, 
+  post_secondary_ed_cpsp_result, 
+  post_secondary_ed_cpsp_intercept_p,
+  post_secondary_ed_cpsp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_earnings_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_earnings_meta.RDS"
+ilp_earnings_meta <- readRDS(ilp_earnings_meta_data_location)
+
+earnings_ilp_eggers <- eggers.test(x = ilp_earnings_meta)                     
+
+earnings_ilp_domain <- "Economic or employment"
+earnings_ilp_outcome <- "Earnings" 
+earnings_ilp_intervention <- "Independent Living Program" 
+earnings_ilp_intercept <- round(earnings_ilp_eggers$intercept, 3)
+earnings_ilp_intercept_ci.lo <- round(earnings_ilp_eggers$llci, 3)
+earnings_ilp_intercept_ci.hi <- round(earnings_ilp_eggers$ulci, 3)
+earnings_ilp_intercept_p <- round(earnings_ilp_eggers$p, 3) 
+earnings_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+earnings_ilp_result <- paste(
+  earnings_ilp_intercept, 
+  " [",
+  earnings_ilp_intercept_ci.lo,
+  ", ",
+  earnings_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+earnings_ilp_eggers_export <- data.frame(
+  earnings_ilp_domain,
+  earnings_ilp_outcome,
+  earnings_ilp_intervention, 
+  earnings_ilp_result, 
+  earnings_ilp_intercept_p,
+  earnings_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_employed_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_employment_meta.RDS"
+ilp_employed_meta <- readRDS(ilp_employed_meta_data_location)
+
+employment_ilp_eggers <- eggers.test(x = ilp_employed_meta)                     
+
+employment_ilp_domain <- "Economic or employment"
+employment_ilp_outcome <- "Current employment" 
+employment_ilp_intervention <- "Independent Living Program" 
+employment_ilp_intercept <- round(employment_ilp_eggers$intercept, 3)
+employment_ilp_intercept_ci.lo <- round(employment_ilp_eggers$llci, 3)
+employment_ilp_intercept_ci.hi <- round(employment_ilp_eggers$ulci, 3)
+employment_ilp_intercept_p <- round(employment_ilp_eggers$p, 3) 
+employment_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+employment_ilp_result <- paste(
+  employment_ilp_intercept, 
+  " [",
+  employment_ilp_intercept_ci.lo,
+  ", ",
+  employment_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+employment_ilp_eggers_export <- data.frame(
+  employment_ilp_domain,
+  employment_ilp_outcome,
+  employment_ilp_intervention, 
+  employment_ilp_result, 
+  employment_ilp_intercept_p,
+  employment_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_fin_assist_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_fin_assist_meta.RDS"
+ilp_fin_assist_meta <- readRDS(ilp_fin_assist_meta_data_location)
+
+fin_assist_ilp_eggers <- eggers.test(x = ilp_fin_assist_meta)                     
+
+fin_assist_ilp_domain <- "Economic or employment"
+fin_assist_ilp_outcome <- "Receipt of any financial assistance" 
+fin_assist_ilp_intervention <- "Independent Living Program" 
+fin_assist_ilp_intercept <- round(fin_assist_ilp_eggers$intercept, 3)
+fin_assist_ilp_intercept_ci.lo <- round(fin_assist_ilp_eggers$llci, 3)
+fin_assist_ilp_intercept_ci.hi <- round(fin_assist_ilp_eggers$ulci, 3)
+fin_assist_ilp_intercept_p <- round(fin_assist_ilp_eggers$p, 3) 
+fin_assist_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+fin_assist_ilp_result <- paste(
+  fin_assist_ilp_intercept, 
+  " [",
+  fin_assist_ilp_intercept_ci.lo,
+  ", ",
+  fin_assist_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+fin_assist_ilp_eggers_export <- data.frame(
+  fin_assist_ilp_domain,
+  fin_assist_ilp_outcome,
+  fin_assist_ilp_intervention, 
+  fin_assist_ilp_result, 
+  fin_assist_ilp_intercept_p,
+  fin_assist_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_net_worth_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_net_worth_meta.RDS"
+ilp_net_worth_meta <- readRDS(ilp_net_worth_meta_data_location)
+
+net_worth_ilp_eggers <- eggers.test(x = ilp_net_worth_meta)                     
+
+net_worth_ilp_domain <- "Economic or employment"
+net_worth_ilp_outcome <- "Net worth" 
+net_worth_ilp_intervention <- "Independent Living Program" 
+net_worth_ilp_intercept <- round(net_worth_ilp_eggers$intercept, 3)
+net_worth_ilp_intercept_ci.lo <- round(net_worth_ilp_eggers$llci, 3)
+net_worth_ilp_intercept_ci.hi <- round(net_worth_ilp_eggers$ulci, 3)
+net_worth_ilp_intercept_p <- round(net_worth_ilp_eggers$p, 3) 
+net_worth_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+net_worth_ilp_result <- paste(
+  net_worth_ilp_intercept, 
+  " [",
+  net_worth_ilp_intercept_ci.lo,
+  ", ",
+  net_worth_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+net_worth_ilp_eggers_export <- data.frame(
+  net_worth_ilp_domain,
+  net_worth_ilp_outcome,
+  net_worth_ilp_intervention, 
+  net_worth_ilp_result, 
+  net_worth_ilp_intercept_p,
+  net_worth_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+better_futures_employment_meta_data_location <- "./meta-analysis/output/meta/my_life_employment_meta.RDS"
+better_futures_employment_meta <- readRDS(better_futures_employment_meta_data_location)
+
+employment_ed_cpsp <- eggers.test(x = better_futures_employment_meta)     
+
+employment_cpsp_domain <- "Education"
+employment_cpsp_outcome <- "Commencement of post-secondary education" 
+employment_cpsp_intervention <- "Coaching and peer support program" 
+employment_cpsp_result <- "N/A"
+employment_cpsp_intercept_p <- NA_real_ 
+employment_cpsp_interpretation <- "Not enough included studies to use Eggers' test"
+
+employment_cpsp_export <- data.frame(
+  employment_cpsp_domain,
+  employment_cpsp_outcome,
+  employment_cpsp_intervention, 
+  employment_cpsp_result, 
+  employment_cpsp_intercept_p,
+  employment_cpsp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_delinquent_behaviours_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_delinquent_behaviours_meta.RDS"
+ilp_delinquent_behaviours_meta <- readRDS(ilp_delinquent_behaviours_meta_data_location)
+
+delinquent_behaviours_ilp_eggers <- eggers.test(x = ilp_delinquent_behaviours_meta)                     
+
+delinquent_behaviours_ilp_domain <- "Criminal or delinquent behaviour"
+delinquent_behaviours_ilp_outcome <- "Number of delinquent acts" 
+delinquent_behaviours_ilp_intervention <- "Independent Living Program" 
+delinquent_behaviours_ilp_intercept <- round(delinquent_behaviours_ilp_eggers$intercept, 3)
+delinquent_behaviours_ilp_intercept_ci.lo <- round(delinquent_behaviours_ilp_eggers$llci, 3)
+delinquent_behaviours_ilp_intercept_ci.hi <- round(delinquent_behaviours_ilp_eggers$ulci, 3)
+delinquent_behaviours_ilp_intercept_p <- round(delinquent_behaviours_ilp_eggers$p, 3) 
+delinquent_behaviours_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+delinquent_behaviours_ilp_result <- paste(
+  delinquent_behaviours_ilp_intercept, 
+  " [",
+  delinquent_behaviours_ilp_intercept_ci.lo,
+  ", ",
+  delinquent_behaviours_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+delinquent_behaviours_ilp_eggers_export <- data.frame(
+  delinquent_behaviours_ilp_domain,
+  delinquent_behaviours_ilp_outcome,
+  delinquent_behaviours_ilp_intervention, 
+  delinquent_behaviours_ilp_result, 
+  delinquent_behaviours_ilp_intercept_p,
+  delinquent_behaviours_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_pregnant_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_pregnant_meta.RDS"
+ilp_pregnant_meta <- readRDS(ilp_pregnant_meta_data_location)
+
+pregnant_ilp_eggers <- eggers.test(x = ilp_pregnant_meta)                     
+
+pregnant_ilp_domain <- "Risky behaviour"
+pregnant_ilp_outcome <- "Becoming pregnant" 
+pregnant_ilp_intervention <- "Independent Living Program" 
+pregnant_ilp_intercept <- round(pregnant_ilp_eggers$intercept, 3)
+pregnant_ilp_intercept_ci.lo <- round(pregnant_ilp_eggers$llci, 3)
+pregnant_ilp_intercept_ci.hi <- round(pregnant_ilp_eggers$ulci, 3)
+pregnant_ilp_intercept_p <- round(pregnant_ilp_eggers$p, 3) 
+pregnant_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+pregnant_ilp_result <- paste(
+  pregnant_ilp_intercept, 
+  " [",
+  pregnant_ilp_intercept_ci.lo,
+  ", ",
+  pregnant_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+pregnant_ilp_eggers_export <- data.frame(
+  pregnant_ilp_domain,
+  pregnant_ilp_outcome,
+  pregnant_ilp_intervention, 
+  pregnant_ilp_result, 
+  pregnant_ilp_intercept_p,
+  pregnant_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_prep_overall_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_prep_overall_meta.RDS"
+ilp_prep_overall_meta <- readRDS(ilp_prep_overall_meta_data_location)
+
+prep_overall_ilp_eggers <- eggers.test(x = ilp_prep_overall_meta)                     
+
+prep_overall_ilp_domain <- "Life Skills"
+prep_overall_ilp_outcome <- "Overall preparedness" 
+prep_overall_ilp_intervention <- "Independent Living Program" 
+prep_overall_ilp_intercept <- round(prep_overall_ilp_eggers$intercept, 3)
+prep_overall_ilp_intercept_ci.lo <- round(prep_overall_ilp_eggers$llci, 3)
+prep_overall_ilp_intercept_ci.hi <- round(prep_overall_ilp_eggers$ulci, 3)
+prep_overall_ilp_intercept_p <- round(prep_overall_ilp_eggers$p, 3) 
+prep_overall_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+prep_overall_ilp_result <- paste(
+  prep_overall_ilp_intercept, 
+  " [",
+  prep_overall_ilp_intercept_ci.lo,
+  ", ",
+  prep_overall_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+prep_overall_ilp_eggers_export <- data.frame(
+  prep_overall_ilp_domain,
+  prep_overall_ilp_outcome,
+  prep_overall_ilp_intervention, 
+  prep_overall_ilp_result, 
+  prep_overall_ilp_intercept_p,
+  prep_overall_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_prep_job_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_prep_job_meta.RDS"
+ilp_prep_job_meta <- readRDS(ilp_prep_job_meta_data_location)
+
+prep_job_ilp_eggers <- eggers.test(x = ilp_prep_job_meta)                     
+
+prep_job_ilp_domain <- "Life Skills"
+prep_job_ilp_outcome <- "Job-related preparedness" 
+prep_job_ilp_intervention <- "Independent Living Program" 
+prep_job_ilp_intercept <- round(prep_job_ilp_eggers$intercept, 3)
+prep_job_ilp_intercept_ci.lo <- round(prep_job_ilp_eggers$llci, 3)
+prep_job_ilp_intercept_ci.hi <- round(prep_job_ilp_eggers$ulci, 3)
+prep_job_ilp_intercept_p <- round(prep_job_ilp_eggers$p, 3) 
+prep_job_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+prep_job_ilp_result <- paste(
+  prep_job_ilp_intercept, 
+  " [",
+  prep_job_ilp_intercept_ci.lo,
+  ", ",
+  prep_job_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+prep_job_ilp_eggers_export <- data.frame(
+  prep_job_ilp_domain,
+  prep_job_ilp_outcome,
+  prep_job_ilp_intervention, 
+  prep_job_ilp_result, 
+  prep_job_ilp_intercept_p,
+  prep_job_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_fin_account_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_fin_account_meta.RDS"
+ilp_fin_account_meta <- readRDS(ilp_fin_account_meta_data_location)
+
+fin_account_ilp_eggers <- eggers.test(x = ilp_fin_account_meta)                     
+
+fin_account_ilp_domain <- "Life Skills"
+fin_account_ilp_outcome <- "Having any financial accounts" 
+fin_account_ilp_intervention <- "Independent Living Program" 
+fin_account_ilp_intercept <- round(fin_account_ilp_eggers$intercept, 3)
+fin_account_ilp_intercept_ci.lo <- round(fin_account_ilp_eggers$llci, 3)
+fin_account_ilp_intercept_ci.hi <- round(fin_account_ilp_eggers$ulci, 3)
+fin_account_ilp_intercept_p <- round(fin_account_ilp_eggers$p, 3) 
+fin_account_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+fin_account_ilp_result <- paste(
+  fin_account_ilp_intercept, 
+  " [",
+  fin_account_ilp_intercept_ci.lo,
+  ", ",
+  fin_account_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+fin_account_ilp_eggers_export <- data.frame(
+  fin_account_ilp_domain,
+  fin_account_ilp_outcome,
+  fin_account_ilp_intervention, 
+  fin_account_ilp_result, 
+  fin_account_ilp_intercept_p,
+  fin_account_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_social_sec_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_social_sec_meta.RDS"
+ilp_social_sec_meta <- readRDS(ilp_social_sec_meta_data_location)
+
+social_sec_ilp_eggers <- eggers.test(x = ilp_social_sec_meta)                     
+
+social_sec_ilp_domain <- "Life Skills"
+social_sec_ilp_outcome <- "Having a social security certificate" 
+social_sec_ilp_intervention <- "Independent Living Program" 
+social_sec_ilp_intercept <- round(social_sec_ilp_eggers$intercept, 3)
+social_sec_ilp_intercept_ci.lo <- round(social_sec_ilp_eggers$llci, 3)
+social_sec_ilp_intercept_ci.hi <- round(social_sec_ilp_eggers$ulci, 3)
+social_sec_ilp_intercept_p <- round(social_sec_ilp_eggers$p, 3) 
+social_sec_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+social_sec_ilp_result <- paste(
+  social_sec_ilp_intercept, 
+  " [",
+  social_sec_ilp_intercept_ci.lo,
+  ", ",
+  social_sec_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+social_sec_ilp_eggers_export <- data.frame(
+  social_sec_ilp_domain,
+  social_sec_ilp_outcome,
+  social_sec_ilp_intervention, 
+  social_sec_ilp_result, 
+  social_sec_ilp_intercept_p,
+  social_sec_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_birth_cert_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_birth_cert_meta.RDS"
+ilp_birth_cert_meta <- readRDS(ilp_birth_cert_meta_data_location)
+birth_cert_ilp_eggers <- eggers.test(x = ilp_birth_cert_meta)                     
+
+birth_cert_ilp_domain <- "Life Skills"
+birth_cert_ilp_outcome <- "Having a birth certificate" 
+birth_cert_ilp_intervention <- "Independent Living Program" 
+birth_cert_ilp_intercept <- round(birth_cert_ilp_eggers$intercept, 3)
+birth_cert_ilp_intercept_ci.lo <- round(birth_cert_ilp_eggers$llci, 3)
+birth_cert_ilp_intercept_ci.hi <- round(birth_cert_ilp_eggers$ulci, 3)
+birth_cert_ilp_intercept_p <- round(birth_cert_ilp_eggers$p, 3) 
+birth_cert_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+birth_cert_ilp_result <- paste(
+  birth_cert_ilp_intercept, 
+  " [",
+  birth_cert_ilp_intercept_ci.lo,
+  ", ",
+  birth_cert_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+birth_cert_ilp_eggers_export <- data.frame(
+  birth_cert_ilp_domain,
+  birth_cert_ilp_intervention, 
+  birth_cert_ilp_outcome,
+  birth_cert_ilp_result, 
+  birth_cert_ilp_intercept_p,
+  birth_cert_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+ilp_drivers_lic_meta_data_location <- "./meta-analysis/output/meta/independent_living_program_drivers_lic_meta.RDS"
+ilp_drivers_lic_meta <- readRDS(ilp_drivers_lic_meta_data_location)
+
+drivers_lic_ilp_eggers <- eggers.test(x = ilp_drivers_lic_meta)                     
+
+drivers_lic_ilp_domain <- "Life Skills"
+drivers_lic_ilp_outcome <- "Having a driver's licence" 
+drivers_lic_ilp_intervention <- "Independent Living Program" 
+drivers_lic_ilp_intercept <- round(drivers_lic_ilp_eggers$intercept, 3)
+drivers_lic_ilp_intercept_ci.lo <- round(drivers_lic_ilp_eggers$llci, 3)
+drivers_lic_ilp_intercept_ci.hi <- round(drivers_lic_ilp_eggers$ulci, 3)
+drivers_lic_ilp_intercept_p <- round(drivers_lic_ilp_eggers$p, 3) 
+drivers_lic_ilp_interpretation <- "Eggers' test does not indicate the presence of funnel plot asymmetry, this meta-analysis only contains k = 3 studies. Egger's test may lack the statistical power to detect bias when the number of studies is small (i.e., k<10)."
+
+drivers_lic_ilp_result <- paste(
+  drivers_lic_ilp_intercept, 
+  " [",
+  drivers_lic_ilp_intercept_ci.lo,
+  ", ",
+  drivers_lic_ilp_intercept_ci.hi,
+  "]",
+  sep = ""
+  )
+
+drivers_lic_ilp_eggers_export <- data.frame(
+  drivers_lic_ilp_domain,
+  drivers_lic_ilp_intervention, 
+  drivers_lic_ilp_outcome,
+  drivers_lic_ilp_result, 
+  drivers_lic_ilp_intercept_p,
+  drivers_lic_ilp_interpretation
+  ) %>%
+  rename(
+    domain = 1,
+    intervention = 2,
+    outcome = 3,
+    result = 4,
+    p = 5,
+    interpretation = 6
+  )
+
+# MERGE EGGERS
+
+ilp_eggers_results <- bind_rows(
+  homelessness_ilp_eggers_export,
+  residential_moves_ilp_eggers_export,
+  qol_cpsp_export,
+  hs_ged_ilp_eggers_export,
+  hs_ged_cpsp_export,
+  attended_university_ilp_eggers_export,
+  post_secondary_ed_cpsp_export,
+  earnings_ilp_eggers_export, 
+  employment_ilp_eggers_export,
+  employment_cpsp_export,
+  fin_assist_ilp_eggers_export, 
+  net_worth_ilp_eggers_export, 
+  delinquent_behaviours_ilp_eggers_export, 
+  pregnant_ilp_eggers_export, 
+  prep_overall_ilp_eggers_export, 
+  prep_job_ilp_eggers_export,
+  fin_account_ilp_eggers_export,
+  social_sec_ilp_eggers_export,
+  birth_cert_ilp_eggers_export,
+  drivers_lic_ilp_eggers_export) %>%
+  rename(
+    Domain = domain,
+    Outcome = intervention,
+    Intervention = outcome,
+    "Egger's Test [95% CI]" = result,
+    "p value" = p
+  )
+
+## PRODUCE TABLE
+
+ilp_eggers_results %>%
+  kbl(
+    caption = "Results of Egger's test of the intercept") %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(
+    columns = 1:2, 
+    valign = "middle")
+```
+
+# GRADE Assessments
+
+## Housing and homelessness
+
+```{r tables-grade-homelessness-ilp-summary, echo=FALSE}
+
+## READ DATA
+
+homelessness_ilp_grade_summary_file_location <- "./supplementary-material/inputs/grade_summary_results.xlsx"
+homelessness_ilp_grade_summary <- readxl::read_excel(
+  homelessness_ilp_grade_summary_file_location,
+  sheet = "homelessness_ilp")
+
+## PRODUCE TABLE
+
+homelessness_ilp_grade_summary %>%
+  kbl(
+    caption = 'Summary GRADE quality assessment for housing and homelessness outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(columns = 7, valign = "middle") %>%
+  footnote(
+    number = c("Downgraded two levels for risk of bias and one level for imprecision", "Downgraded two levels for risk of bias and one level for imprecision"))
+```
+
+```{r tables-grade-homelessness-ilp-detailed, echo=FALSE}
+
+## READ DATA
+
+homelessness_ilp_grade_detailed_file_location <- "./supplementary-material/inputs/grade_detailed_results.xlsx"
+homelessness_ilp_grade_detailed <- readxl::read_excel(
+  homelessness_ilp_grade_detailed_file_location,
+  sheet = "homelessness_ilp")
+
+## PRODUCE TABLE
+
+homelessness_ilp_grade_detailed %>%
+  kbl(
+    caption = 'Detailed GRADE quality assessment for housing and homelessness outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  add_header_above(c(" ", "Evidence can be downgraded" = 5, "Evidence can be upgraded" = 3)) 
+```
+
+## Health and wellbeing
+
+```{r tables-grade-health-coach-summary, echo=FALSE}
+
+## READ DATA
+
+health_coach_grade_summary_file_location <- "./supplementary-material/inputs/grade_summary_results.xlsx"
+health_coach_grade_summary <- readxl::read_excel(
+  health_coach_grade_summary_file_location,
+  sheet = "health_coach")
+
+## PRODUCE TABLE
+
+health_coach_grade_summary %>%
+  kbl(
+    caption = 'Summary GRADE quality assessment for health and wellbeing outcomes — Coaching and peer support programs') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(columns = 7, valign = "middle") %>%
+  footnote(
+    number = c("Downgraded two levels for risk of bias and one level for imprecision"))
+```
+
+```{r tables-grade-health-coach-detailed, echo=FALSE}
+
+## READ DATA
+
+health_coach_grade_detailed_file_location <- "./supplementary-material/inputs/grade_detailed_results.xlsx"
+health_coach_grade_detailed <- readxl::read_excel(
+  health_coach_grade_detailed_file_location,
+  sheet = "health_coach")
+
+## PRODUCE TABLE
+
+health_coach_grade_detailed %>%
+  kbl(
+    caption = 'Detailed GRADE quality assessment for health and wellbeing outcomes — Coaching and peer support programs') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  add_header_above(c(" ", "Evidence can be downgraded" = 5, "Evidence can be upgraded" = 3)) 
+```
+
+## Education
+
+```{r tables-grade-education-ilp-summary, echo=FALSE}
+
+## READ DATA
+
+education_ilp_grade_summary_file_location <- "./supplementary-material/inputs/grade_summary_results.xlsx"
+education_ilp_grade_summary <- readxl::read_excel(
+  education_ilp_grade_summary_file_location,
+  sheet = "education_ilp")
+
+## PRODUCE TABLE
+
+education_ilp_grade_summary %>%
+  kbl(
+    caption = 'Summary GRADE quality assessment for education outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(columns = 7, valign = "middle") %>%
+  footnote(
+    number = c("Downgraded two levels for risk of bias and one level for imprecision", "Downgraded two levels for risk of bias, one level for imprecision and one level for inconsistency"))
+```
+
+```{r tables-grade-education-coach-summary, echo=FALSE}
+
+## READ DATA
+
+education_coach_grade_summary_file_location <- "./supplementary-material/inputs/grade_summary_results.xlsx"
+education_coach_grade_summary <- readxl::read_excel(
+  education_coach_grade_summary_file_location,
+  sheet = "education_coach")
+
+## PRODUCE TABLE
+
+education_coach_grade_summary %>%
+  kbl(
+    caption = 'Summary GRADE quality assessment for education outcomes — Coaching and Peer Support programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(columns = 7, valign = "middle") %>%
+  footnote(
+    number = c("Downgraded one level for risk of bias and two levels for imprecision", "Downgraded one level for risk of bias and two levels for imprecision"))
+```
+
+```{r tables-grade-education-ilp-detailed, echo=FALSE}
+
+## READ DATA
+
+education_grade_ilp_detailed_file_location <- "./supplementary-material/inputs/grade_detailed_results.xlsx"
+education_grade_ilp_detailed <- readxl::read_excel(
+  education_grade_ilp_detailed_file_location,
+  sheet = "education_ilp")
+
+## PRODUCE TABLE
+
+education_grade_ilp_detailed %>%
+  kbl(
+    caption = 'Detailed GRADE quality assessment for education outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  add_header_above(c(" ", "Evidence can be downgraded" = 5, "Evidence can be upgraded" = 3)) 
+```
+
+```{r tables-grade-education-coach-detailed, echo=FALSE}
+
+## READ DATA
+
+education_grade_coach_detailed_file_location <- "./supplementary-material/inputs/grade_detailed_results.xlsx"
+education_grade_coach_detailed <- readxl::read_excel(
+  education_grade_coach_detailed_file_location,
+  sheet = "education_coach")
+
+## PRODUCE TABLE
+
+education_grade_coach_detailed %>%
+  kbl(
+    caption = 'Detailed GRADE quality assessment for education outcomes — Coaching and Peer Suppport programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  add_header_above(c(" ", "Evidence can be downgraded" = 5, "Evidence can be upgraded" = 3)) 
+```
+
+## Economic or employment
+
+```{r tables-grade-economic-ilp-summary, echo=FALSE}
+
+## READ DATA
+
+economic_ilp_grade_summary_file_location <- "./supplementary-material/inputs/grade_summary_results.xlsx"
+economic_ilp_grade_summary <- readxl::read_excel(
+  economic_ilp_grade_summary_file_location,
+  sheet = "economic_ilp")
+
+## PRODUCE TABLE
+
+economic_ilp_grade_summary %>%
+  kbl(
+    caption = 'Summary GRADE quality assessment for economic or employment outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(columns = 7, valign = "middle") %>%
+  footnote(
+    number = c("Downgraded two levels for risk of bias and one level for imprecision", "Downgraded two levels for risk of bias and one level for imprecision", "Downgraded two levels for risk of bias, one level for imprecision and one level for inconsistency", "Downgraded two levels for risk of bias and one level for imprecision"))
+```
+
+```{r tables-grade-economic-coach-summary, echo=FALSE}
+
+## READ DATA
+
+economic_coach_grade_summary_file_location <- "./supplementary-material/inputs/grade_summary_results.xlsx"
+economic_coach_grade_summary <- readxl::read_excel(
+  economic_coach_grade_summary_file_location,
+  sheet = "economic_coach")
+
+## PRODUCE TABLE
+
+economic_coach_grade_summary %>%
+  kbl(
+    caption = 'Summary GRADE quality assessment for economic or employment outcomes — Coaching and Peer Support programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(columns = 7, valign = "middle") %>%
+  footnote(
+    number = c("Downgraded one level for risk of bias and two levels for imprecision"))
+```
+
+```{r tables-grade-economic-ilp-detailed, echo=FALSE}
+
+## READ DATA
+
+economic_ilp_grade_detailed_file_location <- "./supplementary-material/inputs/grade_detailed_results.xlsx"
+economic_ilp_grade_detailed <- readxl::read_excel(
+  economic_ilp_grade_detailed_file_location,
+  sheet = "economic_ilp")
+
+## PRODUCE TABLE
+
+economic_ilp_grade_detailed %>%
+  kbl(
+    caption = 'Detailed GRADE quality assessment for economic or employment outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  add_header_above(c(" ", "Evidence can be downgraded" = 5, "Evidence can be upgraded" = 3)) 
+  
+```
+
+```{r tables-grade-economic-coach-detailed, echo=FALSE}
+
+## READ DATA
+
+economic_coach_grade_detailed_file_location <- "./supplementary-material/inputs/grade_detailed_results.xlsx"
+economic_coach_grade_detailed <- readxl::read_excel(
+  economic_coach_grade_detailed_file_location,
+  sheet = "economic_coach")
+
+## PRODUCE TABLE
+
+economic_coach_grade_detailed %>%
+  kbl(
+    caption = 'Detailed GRADE quality assessment for economic or employment outcomes — Coaching and Peer Support programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  add_header_above(c(" ", "Evidence can be downgraded" = 5, "Evidence can be upgraded" = 3)) 
+```
+
+## Criminal and delinquent behaviour 
+
+```{r tables-grade-violence-ilp-summary, echo=FALSE}
+
+## READ DATA
+
+violence_ilp_grade_summary_file_location <- "./supplementary-material/inputs/grade_summary_results.xlsx"
+violence_ilp_grade_summary <- readxl::read_excel(
+  violence_ilp_grade_summary_file_location,
+  sheet = "violence_ilp")
+
+## PRODUCE TABLE
+
+violence_ilp_grade_summary %>%
+  kbl(
+    caption = 'Summary GRADE quality assessment for exposure to violence outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(columns = 7, valign = "middle") %>%
+  footnote(
+    number = c("Downgraded two levels for risk of bias and one level for imprecision"))
+```
+
+```{r tables-grade-violence-ilp-detailed, echo=FALSE}
+
+## READ DATA
+
+violence_ilp_grade_detailed_file_location <- "./supplementary-material/inputs/grade_detailed_results.xlsx"
+violence_ilp_grade_detailed <- readxl::read_excel(
+  violence_ilp_grade_detailed_file_location,
+  sheet = "violence_ilp")
+
+## PRODUCE TABLE
+
+violence_ilp_grade_detailed %>%
+  kbl(
+    caption = 'Detailed GRADE quality assessment for exposure to violence outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  add_header_above(c(" ", "Evidence can be downgraded" = 5, "Evidence can be upgraded" = 3)) 
+```
+
+## Risky Behaviour
+
+```{r tables-grade-risky-ilp-summary, echo=FALSE}
+
+## READ DATA
+
+risky_ilp_grade_summary_file_location <- "./supplementary-material/inputs/grade_summary_results.xlsx"
+risky_ilp_grade_summary <- readxl::read_excel(
+  risky_ilp_grade_summary_file_location,
+  sheet = "risky_ilp")
+
+## PRODUCE TABLE
+
+risky_ilp_grade_summary %>%
+  kbl(
+    caption = 'Summary GRADE quality assessment for risky behaviour outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(columns = 7, valign = "middle") %>%
+  footnote(
+    number = c("Downgraded two levels for risk of bias and one level for imprecision"))
+```
+
+```{r tables-grade-risky-ilp-detailed, echo=FALSE}
+
+## READ DATA
+
+risky_ilp_grade_detailed_file_location <- "./supplementary-material/inputs/grade_detailed_results.xlsx"
+risky_ilp_grade_detailed <- readxl::read_excel(
+  risky_ilp_grade_detailed_file_location,
+  sheet = "risky_ilp")
+
+## PRODUCE TABLE
+
+risky_ilp_grade_detailed %>%
+  kbl(
+    caption = 'Detailed GRADE quality assessment for risky behaviour outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  add_header_above(c(" ", "Evidence can be downgraded" = 5, "Evidence can be upgraded" = 3))
+```
+
+## Life Skills
+
+```{r tables-grade-skills-ilp-summary, echo=FALSE}
+
+## READ DATA
+
+skills_ilp_grade_summary_file_location <- "./supplementary-material/inputs/grade_summary_results.xlsx"
+skills_ilp_grade_summary <- readxl::read_excel(
+  skills_ilp_grade_summary_file_location,
+  sheet = "skills_ilp")
+
+## PRODUCE TABLE
+
+skills_ilp_grade_summary %>%
+  kbl(
+    caption = 'Summary GRADE quality assessment for Life Skills outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  collapse_rows(columns = 7, valign = "middle") %>%
+  footnote(
+    number = c("Downgraded two levels for risk of bias and one level for imprecision", "Downgraded two levels for risk of bias and one level for imprecision", "Downgraded two levels for risk of bias and one level for imprecision", "Downgraded two levels for risk of bias and one level for imprecision", "Downgraded two levels for risk of bias and one level for imprecision", "Downgraded two levels for risk of bias, one level for imprecision and one level for inconsistency"))
+```
+
+```{r tables-grade-skills-ilp-detailed, echo=FALSE}
+
+## READ DATA
+
+skills_ilp_grade_detailed_file_location <- "./supplementary-material/inputs/grade_detailed_results.xlsx"
+skills_ilp_grade_detailed <- readxl::read_excel(
+  skills_ilp_grade_detailed_file_location,
+  sheet = "skills_ilp")
+
+## PRODUCE TABLE
+
+skills_ilp_grade_detailed %>%
+  kbl(
+    caption = 'Detailed GRADE quality assessment for Life Skills outcomes — Independent Living Programmes') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  add_header_above(c(" ", "Evidence can be downgraded" = 5, "Evidence can be upgraded" = 3)) 
+```
+
+# PRISMA 2020 Checklist
+
+```{r tables-prisma, echo=FALSE}
+
+## READ DATA
+
+prisma_file_location <- "./supplementary-material/inputs/prisma.xlsx"
+prisma <- readxl::read_excel(
+  prisma_file_location,
+  sheet = "prisma")
+
+## PRODUCE TABLE
+
+prisma %>%
+  filter(!`Section and Topic` == "TITLE") %>%
+  filter(!`Section and Topic` == "ABSTRACT") %>%
+  filter(!`Section and Topic` == "INTRODUCTION") %>%
+  filter(!`Section and Topic` == "METHODS") %>%
+  filter(!`Section and Topic` == "RESULTS") %>%
+  filter(!`Section and Topic` == "DISCUSSION") %>%
+  filter(!`Section and Topic` == "OTHER INFORMATION") %>%
+  kbl(
+    caption = 'PRISMA 2020 Checklist') %>%
+  kable_styling(
+    bootstrap_options = c("hover", "condensed"),
+    font_size = 12) %>%
+  row_spec(0, color = "#FFFFFF", background = "#027EB6") %>%
+  pack_rows(
+    index = c(
+      "Title" = 1, 
+      "Abstract" = 1, 
+      "Introduction" = 2,
+      "Methods" = 17,
+      "Results" = 11,
+      "Discussion" = 3,
+      "Other Information" = 6)) 
+  
+```
+
+# References
