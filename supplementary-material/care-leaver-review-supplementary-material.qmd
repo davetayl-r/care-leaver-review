@@ -1,6 +1,6 @@
 ---
 title: "Systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system: supplementary material"
-date: 28 January 2024
+date: 22 February 2024
 author: 
   - name: David Taylor
     affiliation: Monash University
@@ -24,8 +24,8 @@ author:
     affiliation: Monash University
     orcid: 0000-0001-8096-726X
 citation:
-  doi: "10.5281/zenodo.8381752"
-  url: https://davetayl-r.github.io/care-leaver-review/
+  doi: "10.5281/zenodo.8128712"
+  url: https://davetayl-r.github.io/care-leaver-review/care-leaver-review-supplementary-material.html
 bibliography: care-leaver-review-references.bib
 csl: apa-sixth-edition.csl
 link-citations: true

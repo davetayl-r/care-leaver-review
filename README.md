@@ -1,8 +1,8 @@
 # Supplementary material for a systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system
 
-[![DOI](https://zenodo.org/badge/664429132.svg)](https://zenodo.org/badge/latestdoi/664429132)
+[![](https://zenodo.org/badge/DOI/10.5281/zenodo.8128712.svg)](https://doi.org/10.5281/zenodo.8128712)
 
-This repository [hosts a site](https://davetayl-r.github.io/care-leaver-review) that contains supplementary material, data and analysis code for a systematic review titled <i>"Systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system"</i>.
+This repository [hosts a site](https://davetayl-r.github.io/care-leaver-review/care-leaver-review-supplementary-material.html) that contains supplementary material, data and analysis code for a systematic review titled <i>"Systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system"</i>.
 
 The following information is available as part of the supplementary material:
 
@@ -16,7 +16,5 @@ The following information is available as part of the supplementary material:
 
 The following information is available in the repository:
 
-- the folder <i>es-transformation</i> contains the raw data and code used to transform effect sizes
-- the folder <i>meta-analysis</i> contains the code for the meta-analysis
-- the folder <i>figures</i> contains and code and output used in the publication
-- the folder <i>docs</i> contains all of the code and input required to reproduce the supplementary materials
+* the folder `review` contains all of the code required to transform effect sizes (`es-transformation`), undertake the meta-analysis (`meta-analysis`) and produce visualisations (`figures`) used in the publication
+* the folder `supplementary-material` contains all of the code and input required to reproduce the supplementary materials

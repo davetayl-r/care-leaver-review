@@ -20,3 +20,9 @@ figure {
     flex-direction: column;
     align-items: flex-start; 
 }
+
+/* Horizontal scrolling box  */
+.horizontal-scrolling {
+  overflow: auto;
+  white-space: nowrap;
+}
