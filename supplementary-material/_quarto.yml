@@ -1,0 +1,29 @@
+project:
+  type: website
+
+website:
+  page-navigation: true
+  title: "Supplementary material for a systematic review and meta-analysis of policies and interventions that improve health, psychosocial and economic outcomes for young people leaving the out-of-home care system"
+  description: ""
+  site-url: "https://davetayl-r.github.io/care-leaver-review"
+  repo-url: https://github.com/davetayl-r/care-leaver-review
+
+  open-graph: true
+
+  page-footer:
+    right: "Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)"
+    background: "#212529"
+    
+format:
+  html:
+    theme: 
+     - cosmo
+     - theme.scss
+    css: styles.css
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+
+editor: visual    
+    
+freeze: auto

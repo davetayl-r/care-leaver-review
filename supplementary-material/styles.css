@@ -1,0 +1,28 @@
+/* css styles */
+
+table {
+    font-size: 11pt;
+}
+
+/* Left-align figure captions */
+figcaption {
+    text-align: left;
+}
+
+/* Left-align table captions */
+caption {
+    text-align: left;
+}
+
+/* Ensure figure is aligned  */
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+/* Horizontal scrolling box  */
+.horizontal-scrolling {
+  overflow: auto;
+  white-space: nowrap;
+}
