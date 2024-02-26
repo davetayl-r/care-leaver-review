@@ -834,7 +834,7 @@ grey_lit_search_results %>%
 options(knitr.kable.NA = '')
 
 # read data
-data_extraction_homelessness_data_location <- "../review/es-transformation/data/es_input.xlsx"
+data_extraction_homelessness_data_location <- "./inputs/es_input.xlsx"
 data_extraction_homelessness <- read_excel(
   data_extraction_homelessness_data_location,
   sheet = "homelessness")
@@ -873,7 +873,7 @@ data_extraction_homelessness %>%
 options(knitr.kable.NA = '')
 
 # read data
-data_extraction_health_data_location <- "../review/es-transformation/data/es_input.xlsx"
+data_extraction_health_data_location <- "./inputs/es_input.xlsx"
 data_extraction_health <- read_excel(
   data_extraction_health_data_location,
   sheet = "health")
@@ -912,7 +912,7 @@ data_extraction_health %>%
 options(knitr.kable.NA = '')
 
 # read data
-data_extraction_education_data_location <- "../review/es-transformation/data/es_input.xlsx"
+data_extraction_education_data_location <- "./inputs/es_input.xlsx"
 data_extraction_education <- read_excel(
   data_extraction_education_data_location,
   sheet = "education")
@@ -951,7 +951,7 @@ data_extraction_education %>%
 options(knitr.kable.NA = '')
 
 # read data
-data_extraction_economic_data_location <- "../review/es-transformation/data/es_input.xlsx"
+data_extraction_economic_data_location <- "./inputs/es_input.xlsx"
 data_extraction_economic <- read_excel(
   data_extraction_economic_data_location,
   sheet = "employment")
@@ -990,7 +990,7 @@ data_extraction_economic %>%
 options(knitr.kable.NA = '')
 
 # read data
-data_extraction_criminal_data_location <- "../review/es-transformation/data/es_input.xlsx"
+data_extraction_criminal_data_location <- "./inputs/es_input.xlsx"
 data_extraction_criminal <- read_excel(
   data_extraction_criminal_data_location,
   sheet = "exp_violence")
@@ -1029,7 +1029,7 @@ data_extraction_criminal %>%
 options(knitr.kable.NA = '')
 
 # read data
-data_extraction_risky_data_location <- "../review/es-transformation/data/es_input.xlsx"
+data_extraction_risky_data_location <- "./inputs/es_input.xlsx"
 data_extraction_risky <- read_excel(
   data_extraction_risky_data_location,
   sheet = "risky_behaviour")
@@ -1068,7 +1068,7 @@ data_extraction_risky %>%
 options(knitr.kable.NA = '')
 
 # read data
-data_extraction_life_skills_data_location <- "../review/es-transformation/data/es_input.xlsx"
+data_extraction_life_skills_data_location <- "./inputs/es_input.xlsx"
 data_extraction_life_skills <- read_excel(
   data_extraction_life_skills_data_location,
   sheet = "life_skills")
@@ -1108,7 +1108,7 @@ data_extraction_life_skills %>%
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on experiencing homelessness 24 months from baseline
 #| label: fig-pub-bias-ilp-homelessness
 
-ilp_homelessness_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_homelessness_meta.RDS"
+ilp_homelessness_meta_data_location <- "./inputs/independent_living_program_homelessness_meta.RDS"
 ilp_homelessness_meta <- readRDS(ilp_homelessness_meta_data_location)
 
 funnel(
@@ -1128,7 +1128,7 @@ funnel(
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on number of residential moves 24 months from baseline
 #| label: fig-pub-bias-ilp-residential-moves
 
-ilp_residential_moves_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_residential_moves_meta.RDS"
+ilp_residential_moves_meta_data_location <- "./inputs/independent_living_program_residential_moves_meta.RDS"
 ilp_residential_moves_meta <- readRDS(ilp_residential_moves_meta_data_location)
 
 funnel(
@@ -1150,7 +1150,7 @@ funnel(
 #| fig-cap: Funnel plot for meta analysis of effect of coaching and peer support programs on quality of life 16-24 months from baseline
 #| label: fig-pub-bias-bf-qol
 
-better_futures_qol_meta_data_location <- "../review/meta-analysis/output/meta/my_life_qol_meta.RDS"
+better_futures_qol_meta_data_location <- "./inputs/my_life_qol_meta.RDS"
 better_futures_qol_meta <- readRDS(better_futures_qol_meta_data_location)
 
 funnel(better_futures_qol_meta, 
@@ -1171,7 +1171,7 @@ funnel(better_futures_qol_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on completion of high school or equivalent 24 months from baseline
 #| label: fig-pub-bias-ilp-hs-ged
 
-ilp_hs_ged_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_hs_ged_meta.RDS"
+ilp_hs_ged_meta_data_location <- "./inputs/independent_living_program_hs_ged_meta.RDS"
 ilp_hs_ged_meta <- readRDS(ilp_hs_ged_meta_data_location)
 
 funnel(
@@ -1191,7 +1191,7 @@ funnel(
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on commencement of university 24 months from baseline
 #| label: fig-pub-bias-ilp-attended-university
 
-ilp_university_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_attended_university_meta.RDS"
+ilp_university_meta_data_location <- "./inputs/independent_living_program_attended_university_meta.RDS"
 ilp_university_meta <- readRDS(ilp_university_meta_data_location)
 
 funnel(ilp_university_meta, 
@@ -1211,7 +1211,7 @@ funnel(ilp_university_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of coaching and peer support programs on high school or equivalent completion 16-24 months from baseline
 #| label: fig-pub-bias-bf-hs-ged
 
-better_futures_hs_ged_meta_data_location <- "../review/meta-analysis/output/meta/my_life_hs_ged_meta.RDS"
+better_futures_hs_ged_meta_data_location <- "./inputs/my_life_hs_ged_meta.RDS"
 better_futures_hs_ged_meta <- readRDS(better_futures_hs_ged_meta_data_location)
 
 funnel(better_futures_hs_ged_meta, 
@@ -1230,7 +1230,7 @@ funnel(better_futures_hs_ged_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of coaching and peer support programs on commencement of post-secondary education 16-24 months from baseline
 #| label: fig-pub-bias-bf-post-secondary-ed
 
-better_futures_post_secondary_ed_meta_data_location <- "../review/meta-analysis/output/meta/my_life_post_secondary_ed_meta.RDS"
+better_futures_post_secondary_ed_meta_data_location <- "./inputs/my_life_post_secondary_ed_meta.RDS"
 better_futures_post_secondary_ed_meta <- readRDS(better_futures_post_secondary_ed_meta_data_location)
 
 funnel(better_futures_post_secondary_ed_meta, 
@@ -1251,7 +1251,7 @@ funnel(better_futures_post_secondary_ed_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on earnings (in last 12 months) 24 months from baseline
 #| label: fig-pub-bias-ilp-earnings
 
-ilp_earnings_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_earnings_meta.RDS"
+ilp_earnings_meta_data_location <- "./inputs/independent_living_program_earnings_meta.RDS"
 ilp_earnings_meta <- readRDS(ilp_earnings_meta_data_location)
 
 funnel(ilp_earnings_meta, 
@@ -1271,7 +1271,7 @@ funnel(ilp_earnings_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on current employment 24 months from baseline
 #| label: fig-pub-bias-ilp-employment
 
-ilp_employment_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_employment_meta.RDS"
+ilp_employment_meta_data_location <- "./inputs/independent_living_program_employment_meta.RDS"
 ilp_employment_meta <- readRDS(ilp_employment_meta_data_location)
 
 funnel(
@@ -1291,7 +1291,7 @@ funnel(
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on receipt of any financial assistance 24 months from baseline
 #| label: fig-pub-bias-ilp-fin-assist
 
-ilp_fin_assist_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_fin_assist_meta.RDS"
+ilp_fin_assist_meta_data_location <- "./inputs/independent_living_program_fin_assist_meta.RDS"
 ilp_fin_assist_meta <- readRDS(ilp_fin_assist_meta_data_location)
 
 funnel(ilp_fin_assist_meta, 
@@ -1310,7 +1310,7 @@ funnel(ilp_fin_assist_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on net worth 24 months from baseline
 #| label: fig-pub-bias-ilp-net-worth
 
-ilp_net_worth_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_net_worth_meta.RDS"
+ilp_net_worth_meta_data_location <- "./inputs/independent_living_program_net_worth_meta.RDS"
 ilp_net_worth_meta <- readRDS(ilp_net_worth_meta_data_location)
 
 funnel(ilp_net_worth_meta, 
@@ -1329,7 +1329,7 @@ funnel(ilp_net_worth_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of coaching and peer support programs on current employment 16-24 months from baseline
 #| label: fig-pub-bias-bf-employment
 
-better_futures_employment_meta_data_location <- "../review/meta-analysis/output/meta/my_life_employment_meta.RDS"
+better_futures_employment_meta_data_location <- "./inputs/my_life_employment_meta.RDS"
 better_futures_employment_meta <- readRDS(better_futures_employment_meta_data_location)
 
 funnel(better_futures_employment_meta, 
@@ -1350,7 +1350,7 @@ funnel(better_futures_employment_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on delinquent behaviours 24 months from baseline
 #| label: fig-pub-bias-ilp-delinquent-behaviours
 
-ilp_delinquent_behaviours_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_delinquent_behaviours_meta.RDS"
+ilp_delinquent_behaviours_meta_data_location <- "./inputs/independent_living_program_delinquent_behaviours_meta.RDS"
 ilp_delinquent_behaviours_meta <- readRDS(ilp_delinquent_behaviours_meta_data_location)
 
 funnel(ilp_delinquent_behaviours_meta, 
@@ -1371,7 +1371,7 @@ funnel(ilp_delinquent_behaviours_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on becoming pregnant (in last 12 months) 24 months from baseline
 #| label: fig-pub-bias-ilp-pregnant
 
-ilp_pregnant_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_pregnant_meta.RDS"
+ilp_pregnant_meta_data_location <- "./inputs/independent_living_program_pregnant_meta.RDS"
 ilp_pregnant_meta <- readRDS(ilp_pregnant_meta_data_location)
 
 funnel(ilp_pregnant_meta, 
@@ -1392,7 +1392,7 @@ funnel(ilp_pregnant_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on overall preparedness 24 months from baseline
 #| label: fig-pub-bias-ilp-prep-overall
 
-ilp_prep_overall_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_prep_overall_meta.RDS"
+ilp_prep_overall_meta_data_location <- "./inputs/independent_living_program_prep_overall_meta.RDS"
 ilp_prep_overall_meta <- readRDS(ilp_prep_overall_meta_data_location)
 
 funnel(ilp_prep_overall_meta, 
@@ -1411,7 +1411,7 @@ funnel(ilp_prep_overall_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on job-related preparedness 24 months from baseline
 #| label: fig-pub-bias-ilp-prep-job
 
-ilp_prep_job_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_prep_job_meta.RDS"
+ilp_prep_job_meta_data_location <- "./inputs/independent_living_program_prep_job_meta.RDS"
 ilp_prep_job_meta <- readRDS(ilp_prep_job_meta_data_location)
 
 funnel(ilp_prep_job_meta, 
@@ -1430,7 +1430,7 @@ funnel(ilp_prep_job_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on having any financial accounts 24 months from baseline
 #| label: fig-pub-bias-ilp-fin-account
 
-ilp_fin_account_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_fin_account_meta.RDS"
+ilp_fin_account_meta_data_location <- "./inputs/independent_living_program_fin_account_meta.RDS"
 ilp_fin_account_meta <- readRDS(ilp_fin_account_meta_data_location)
 
 funnel(ilp_fin_account_meta, 
@@ -1449,7 +1449,7 @@ funnel(ilp_fin_account_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on having a social security certificate 24 months from baseline
 #| label: fig-pub-bias-ilp-social-sec
 
-ilp_social_sec_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_social_sec_meta.RDS"
+ilp_social_sec_meta_data_location <- "./inputs/independent_living_program_social_sec_meta.RDS"
 ilp_social_sec_meta <- readRDS(ilp_social_sec_meta_data_location)
 
 funnel(ilp_social_sec_meta, 
@@ -1468,7 +1468,7 @@ funnel(ilp_social_sec_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on having a birth certificate 24 months from baseline
 #| label: fig-pub-bias-ilp-birth-cert
 
-ilp_birth_cert_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_birth_cert_meta.RDS"
+ilp_birth_cert_meta_data_location <- "./inputs/independent_living_program_birth_cert_meta.RDS"
 ilp_birth_cert_meta <- readRDS(ilp_birth_cert_meta_data_location)
 
 funnel(ilp_birth_cert_meta, 
@@ -1487,7 +1487,7 @@ funnel(ilp_birth_cert_meta,
 #| fig-cap: Funnel plot for meta analysis of effect of independent living programs on having a driver's licence 24 months from baseline
 #| label: fig-pub-bias-ilp-drivers-lic
 
-ilp_drivers_lic_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_drivers_lic_meta.RDS"
+ilp_drivers_lic_meta_data_location <- "./inputs/independent_living_program_drivers_lic_meta.RDS"
 ilp_drivers_lic_meta <- readRDS(ilp_drivers_lic_meta_data_location)
 
 funnel(ilp_drivers_lic_meta, 
@@ -1509,7 +1509,7 @@ funnel(ilp_drivers_lic_meta,
 #| code-fold: true
 
 # read data and run egger's test for each meta-analysis
-ilp_homelessness_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_homelessness_meta.RDS"
+ilp_homelessness_meta_data_location <- "./inputs/independent_living_program_homelessness_meta.RDS"
 ilp_homelessness_meta <- readRDS(ilp_homelessness_meta_data_location)
 
 homelessness_eggers <- eggers.test(x = ilp_homelessness_meta
@@ -1550,7 +1550,7 @@ homelessness_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_residential_moves_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_residential_moves_meta.RDS"
+ilp_residential_moves_meta_data_location <- "./inputs/independent_living_program_residential_moves_meta.RDS"
 ilp_residential_moves_meta <- readRDS(ilp_residential_moves_meta_data_location)
 
 residential_moves_ilp_eggers <- eggers.test(x = ilp_residential_moves_meta)                     
@@ -1591,7 +1591,7 @@ residential_moves_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-better_futures_qol_meta_data_location <- "../review/meta-analysis/output/meta/my_life_qol_meta.RDS"
+better_futures_qol_meta_data_location <- "./inputs/my_life_qol_meta.RDS"
 better_futures_qol_meta <- readRDS(better_futures_qol_meta_data_location)
 
 qol_ed_cpsp <- eggers.test(x = better_futures_qol_meta)     
@@ -1620,7 +1620,7 @@ qol_cpsp_export <- data.frame(
     interpretation = 6
   )
 
-ilp_hs_ged_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_hs_ged_meta.RDS"
+ilp_hs_ged_meta_data_location <- "./inputs/independent_living_program_hs_ged_meta.RDS"
 ilp_hs_ged_meta <- readRDS(ilp_hs_ged_meta_data_location)
 
 hs_ged_ilp_eggers <- eggers.test(x = ilp_hs_ged_meta)                     
@@ -1661,7 +1661,7 @@ hs_ged_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_university_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_attended_university_meta.RDS"
+ilp_university_meta_data_location <- "./inputs/independent_living_program_attended_university_meta.RDS"
 ilp_university_meta <- readRDS(ilp_university_meta_data_location)
 
 attended_university_ilp_eggers <- eggers.test(x = ilp_university_meta)                     
@@ -1702,7 +1702,7 @@ attended_university_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-better_futures_hs_ged_meta_data_location <- "../review/meta-analysis/output/meta/my_life_hs_ged_meta.RDS"
+better_futures_hs_ged_meta_data_location <- "./inputs/my_life_hs_ged_meta.RDS"
 better_futures_hs_ged_meta <- readRDS(better_futures_hs_ged_meta_data_location)
 
 hs_ged_cpsp <- eggers.test(x = better_futures_hs_ged_meta)     
@@ -1731,7 +1731,7 @@ hs_ged_cpsp_export <- data.frame(
     interpretation = 6
   )
 
-better_futures_post_secondary_ed_meta_data_location <- "../review/meta-analysis/output/meta/my_life_post_secondary_ed_meta.RDS"
+better_futures_post_secondary_ed_meta_data_location <- "./inputs/my_life_post_secondary_ed_meta.RDS"
 better_futures_post_secondary_ed_meta <- readRDS(better_futures_post_secondary_ed_meta_data_location)
 
 post_secondary_ed_cpsp <- eggers.test(x = better_futures_post_secondary_ed_meta)     
@@ -1760,7 +1760,7 @@ post_secondary_ed_cpsp_export <- data.frame(
     interpretation = 6
   )
 
-ilp_earnings_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_earnings_meta.RDS"
+ilp_earnings_meta_data_location <- "./inputs/independent_living_program_earnings_meta.RDS"
 ilp_earnings_meta <- readRDS(ilp_earnings_meta_data_location)
 
 earnings_ilp_eggers <- eggers.test(x = ilp_earnings_meta)                     
@@ -1801,7 +1801,7 @@ earnings_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_employed_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_employment_meta.RDS"
+ilp_employed_meta_data_location <- "./inputs/independent_living_program_employment_meta.RDS"
 ilp_employed_meta <- readRDS(ilp_employed_meta_data_location)
 
 employment_ilp_eggers <- eggers.test(x = ilp_employed_meta)                     
@@ -1842,7 +1842,7 @@ employment_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_fin_assist_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_fin_assist_meta.RDS"
+ilp_fin_assist_meta_data_location <- "./inputs/independent_living_program_fin_assist_meta.RDS"
 ilp_fin_assist_meta <- readRDS(ilp_fin_assist_meta_data_location)
 
 fin_assist_ilp_eggers <- eggers.test(x = ilp_fin_assist_meta)                     
@@ -1883,7 +1883,7 @@ fin_assist_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_net_worth_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_net_worth_meta.RDS"
+ilp_net_worth_meta_data_location <- "./inputs/independent_living_program_net_worth_meta.RDS"
 ilp_net_worth_meta <- readRDS(ilp_net_worth_meta_data_location)
 
 net_worth_ilp_eggers <- eggers.test(x = ilp_net_worth_meta)                     
@@ -1924,7 +1924,7 @@ net_worth_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-better_futures_employment_meta_data_location <- "../review/meta-analysis/output/meta/my_life_employment_meta.RDS"
+better_futures_employment_meta_data_location <- "./inputs/my_life_employment_meta.RDS"
 better_futures_employment_meta <- readRDS(better_futures_employment_meta_data_location)
 
 employment_ed_cpsp <- eggers.test(x = better_futures_employment_meta)     
@@ -1953,7 +1953,7 @@ employment_cpsp_export <- data.frame(
     interpretation = 6
   )
 
-ilp_delinquent_behaviours_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_delinquent_behaviours_meta.RDS"
+ilp_delinquent_behaviours_meta_data_location <- "./inputs/independent_living_program_delinquent_behaviours_meta.RDS"
 ilp_delinquent_behaviours_meta <- readRDS(ilp_delinquent_behaviours_meta_data_location)
 
 delinquent_behaviours_ilp_eggers <- eggers.test(x = ilp_delinquent_behaviours_meta)                     
@@ -1994,7 +1994,7 @@ delinquent_behaviours_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_pregnant_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_pregnant_meta.RDS"
+ilp_pregnant_meta_data_location <- "./inputs/independent_living_program_pregnant_meta.RDS"
 ilp_pregnant_meta <- readRDS(ilp_pregnant_meta_data_location)
 
 pregnant_ilp_eggers <- eggers.test(x = ilp_pregnant_meta)                     
@@ -2035,7 +2035,7 @@ pregnant_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_prep_overall_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_prep_overall_meta.RDS"
+ilp_prep_overall_meta_data_location <- "./inputs/independent_living_program_prep_overall_meta.RDS"
 ilp_prep_overall_meta <- readRDS(ilp_prep_overall_meta_data_location)
 
 prep_overall_ilp_eggers <- eggers.test(x = ilp_prep_overall_meta)                     
@@ -2076,7 +2076,7 @@ prep_overall_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_prep_job_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_prep_job_meta.RDS"
+ilp_prep_job_meta_data_location <- "./inputs/independent_living_program_prep_job_meta.RDS"
 ilp_prep_job_meta <- readRDS(ilp_prep_job_meta_data_location)
 
 prep_job_ilp_eggers <- eggers.test(x = ilp_prep_job_meta)                     
@@ -2117,7 +2117,7 @@ prep_job_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_fin_account_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_fin_account_meta.RDS"
+ilp_fin_account_meta_data_location <- "./inputs/independent_living_program_fin_account_meta.RDS"
 ilp_fin_account_meta <- readRDS(ilp_fin_account_meta_data_location)
 
 fin_account_ilp_eggers <- eggers.test(x = ilp_fin_account_meta)                     
@@ -2158,7 +2158,7 @@ fin_account_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_social_sec_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_social_sec_meta.RDS"
+ilp_social_sec_meta_data_location <- "./inputs/independent_living_program_social_sec_meta.RDS"
 ilp_social_sec_meta <- readRDS(ilp_social_sec_meta_data_location)
 
 social_sec_ilp_eggers <- eggers.test(x = ilp_social_sec_meta)                     
@@ -2199,7 +2199,7 @@ social_sec_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_birth_cert_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_birth_cert_meta.RDS"
+ilp_birth_cert_meta_data_location <- "./inputs/independent_living_program_birth_cert_meta.RDS"
 ilp_birth_cert_meta <- readRDS(ilp_birth_cert_meta_data_location)
 birth_cert_ilp_eggers <- eggers.test(x = ilp_birth_cert_meta)                     
 
@@ -2239,7 +2239,7 @@ birth_cert_ilp_eggers_export <- data.frame(
     interpretation = 6
   )
 
-ilp_drivers_lic_meta_data_location <- "../review/meta-analysis/output/meta/independent_living_program_drivers_lic_meta.RDS"
+ilp_drivers_lic_meta_data_location <- "./inputs/independent_living_program_drivers_lic_meta.RDS"
 ilp_drivers_lic_meta <- readRDS(ilp_drivers_lic_meta_data_location)
 
 drivers_lic_ilp_eggers <- eggers.test(x = ilp_drivers_lic_meta)                     
@@ -2754,7 +2754,7 @@ skills_ilp_grade_detailed %>%
 #| label: tbl-care-leaver-review-prisma-checklist
 
 # read data
-prisma_file_location <- "./inputs/prisma.xlsx"
+prisma_file_location <- "./inputs/prisma_checklist.xlsx"
 prisma <- readxl::read_excel(
   prisma_file_location,
   sheet = "prisma")
