@@ -1,0 +1,4 @@
+study,author,outcome_domain,outcome,outcome_timing,measure,es,ci.lo,ci.hi,sample.size,se,var,paste_es
+YVLifeSet,"Courtney, Valentine and Skemer (2019)",relationships,Score on social support scale,12 months,g,0.04903309260294086,-0.07044971738460867,0.1685159025904904,1114,0.060961737526819236,0.0037163334422888007,"0.05 [-0.07, 0.17]"
+YVLifeSet,"Courtney, Valentine and Skemer (2019)",relationships,Very close to an adult,12 months,g,0.0535469597332897,-0.18301900782736574,0.2901129272939451,1114,0.12069914009984758,0.014568282420842637,"0.05 [-0.18, 0.29]"
+"True North, Broward County FL",Leip (2020),relationships,Healthy relationships index,8 months,g,0.1377350676698273,-0.09723803726692151,0.37270817260657607,279,0.1198864401540981,0.014372758532822147,"0.14 [-0.1, 0.37]"
